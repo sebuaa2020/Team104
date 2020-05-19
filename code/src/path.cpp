@@ -1,14 +1,16 @@
 #include <ros/ros.h> 
 #include <move_base_msgs/MoveBaseAction.h> 
 #include <actionlib/client/simple_action_client.h> 
+#include "exceptionHandler.h"
+using namespace std;
  
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient; 
 
-void PathManager::avoidObstacle(){
+void avoidObstacle(){
 	return;
 }
 
-int PathManager::nextMove(int argc,char **argv){
+int main(int argc,char **argv){
 	ros::init(argc, argv, "pathPlanning");
 	MoveBaseClient ac("move_base", true);
 	
@@ -30,7 +32,7 @@ int PathManager::nextMove(int argc,char **argv){
     	ROS_INFO("The base moved 1 meter forward");
 	} else{
 		ROS_INFO("The base failed to move forward 1 meter");
-		ExceptionHandler::moveExpHandler(FAIL_TO_MOVE);
+		targetFailedException();
 	} 
  
   return 0;
