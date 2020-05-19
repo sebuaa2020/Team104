@@ -206,67 +206,19 @@ include_directories(
 # catkin_add_nosetests(test)
 
 
-add_executable(controller
+add_executable(main
   src/controller.cpp
-)
-add_dependencies(controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(controller
-  ${catkin_LIBRARIES}
-)
-
-add_executable(detection
-  src/detection.cpp
-)
-add_dependencies(detection ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(detection
-  ${catkin_LIBRARIES}
-)
-
-add_executable(exceptionHandler
-  src/exceptionHandler.cpp
-)
-add_dependencies(exceptionHandler ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(exceptionHandler
-  ${catkin_LIBRARIES}
-)
-
-add_executable(grab
-  src/grab.cpp
-)
-add_dependencies(grab ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(grab
-  ${catkin_LIBRARIES}
-)
-
-add_executable(map
-  src/map.cpp
-)
-add_dependencies(map ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(map
-  ${catkin_LIBRARIES}
-)
-
-add_executable(move
-  src/move.cpp
-)
-add_dependencies(move ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(move
-  ${catkin_LIBRARIES}
-)
-
-add_executable(path
-  src/path.cpp
-)
-add_dependencies(path ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(path
-  ${catkin_LIBRARIES}
-)
-
-add_executable(speech
   src/speech.cpp
-)
-add_dependencies(speech ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(speech
-  ${catkin_LIBRARIES}
+  src/path.cpp
+  src/detection.cpp
+  src/exceptionHandler.cpp
+  src/grab.cpp
+  src/map.cpp
+  src/move.cpp
+  src/main.cpp
 )
 
+add_dependencies(main ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(main
+  ${catkin_LIBRARIES}
+)
