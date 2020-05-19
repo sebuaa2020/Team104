@@ -214,11 +214,19 @@ add_executable(main
   src/exceptionHandler.cpp
   src/grab.cpp
   src/map.cpp
-  src/move.cpp
   src/main.cpp
 )
 
 add_dependencies(main ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(main
+  ${catkin_LIBRARIES}
+)
+
+add_executable(move
+  src/move.cpp
+)
+
+add_dependencies(move ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(move
   ${catkin_LIBRARIES}
 )
