@@ -21,8 +21,8 @@ int main(int argc,char **argv){
 	move_base_msgs::MoveBaseGoal goal;
 	goal.target_pose.header.frame_id = "base_footprint"; 
 	goal.target_pose.header.stamp = ros::Time::now();
-	goal.target_pose.pose.position.x = getPositionX(); 
-	goal.target_pose.pose.orientation.w = getPositionY();
+	goal.target_pose.pose.position.x = 0; 
+	goal.target_pose.pose.orientation.w = 0;
 	
 	ROS_INFO("Sending goal"); 
 	ac.sendGoal(goal); 
@@ -32,7 +32,7 @@ int main(int argc,char **argv){
     	ROS_INFO("The base moved 1 meter forward");
 	} else{
 		ROS_INFO("The base failed to move forward 1 meter");
-		targetFailedException();
+		targetFailedException("");
 	} 
  
   return 0;
