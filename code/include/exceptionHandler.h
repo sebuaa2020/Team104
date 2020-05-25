@@ -17,5 +17,6 @@ void grabFailedException(string in);
 void mapFailedException(string in);
 void targetFailedException(string in);
 void timeLimitedException(string in);
+void cmdErrorException(string in);
 }
 #endif
