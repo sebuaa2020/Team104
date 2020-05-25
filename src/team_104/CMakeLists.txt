@@ -208,7 +208,6 @@ include_directories(
 
 add_executable(controller
   src/controller.cpp
-  src/exceptionHandler.cpp
 )
 
 add_dependencies(controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
@@ -218,7 +217,6 @@ target_link_libraries(controller
 
 add_executable(move
   src/move.cpp
-  src/exceptionHandler.cpp
 )
 
 add_dependencies(move ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
@@ -228,7 +226,6 @@ target_link_libraries(move
 
 add_executable(detection
   src/detection.cpp
-  src/exceptionHandler.cpp
 )
 
 add_dependencies(detection ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
@@ -238,7 +235,6 @@ target_link_libraries(detection
 
 add_executable(grab
   src/grab.cpp
-  src/exceptionHandler.cpp
 )
 
 add_dependencies(grab ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
@@ -249,7 +245,6 @@ target_link_libraries(grab
   
 add_executable(speech
   src/speech.cpp
-  src/exceptionHandler.cpp
 )
 
 add_dependencies(speech ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

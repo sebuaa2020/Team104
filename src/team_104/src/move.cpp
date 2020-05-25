@@ -22,9 +22,9 @@ int main(int argc, char** argv) {
 	ros::Subscriber scan_sub = n.subscribe("/scan",1000,scanCallback);
 	ros::Publisher move_error_pub = n.advertise<std_msgs::String>("move_error", 1000);
 	ros::Rate loopRate(10);
-    if(argc != 6){
-        cout<<"argument count error!!! the number is: ,"<<argc;
-        if(argc>6){
+    if(argc != 7){
+        cout<<"argument count error!!! the number is: ,"<<argc - 1;
+        if(argc>7){
             cout<<"bigger";
         }else{
             cout<<"smaller";
