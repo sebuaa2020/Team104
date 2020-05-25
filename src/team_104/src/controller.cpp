@@ -10,7 +10,7 @@ const int _keyboard = 3;
 }
 namespace controller {
 
-string s,t;
+string s, t;
 bool getstate(string s)
 {
     using namespace STATE;
