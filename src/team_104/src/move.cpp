@@ -40,9 +40,8 @@ int main(int argc, char** argv)
     double v;
     if(cmd=="forward"||cmd=="backward"||cmd=="left"||cmd=="right")
     {
-
-	v=0.3;        
-	t=arg/v;
+        v=0.3;
+        t=arg/v;
         if(arg>5)
         {
             exceptionHandler::otherError("Can't move so fast!");
@@ -56,8 +55,11 @@ int main(int argc, char** argv)
             exceptionHandler::otherError("Can't rotate so fast");
             assert(0);
         }
-	v=15*pi/180;
+        v=15*pi/180;
         t=arg*pi/180/v;
+    } else if(cmd=="stop")
+    {
+        v=0,t=3;
     }
     else 
     {
@@ -74,7 +76,9 @@ int main(int argc, char** argv)
         main_(argc,argv,0,-v,0,0,0,0,t);
     else if(cmd=="rotate_l")
         main_(argc,argv,0,0,0,0,0,v,t);
-    else main_(argc,argv,0,0,0,0,0,-v,t);
+    else if(cmd=="rotate_r")
+        main_(argc,argv,0,0,0,0,0,-v,t);
+    else main_(argc,argv,0,0,0,0,0,0,t);
 }
 int main_(int argc, char **argv, double lx, double ly, double lz, double rx, double ry, double rz,double t) {
 
@@ -98,7 +102,7 @@ int main_(int argc, char **argv, double lx, double ly, double lz, double rx, dou
 		vel_cmd.angular.x = rx;//str2double(string(argv[4]));
 		vel_cmd.angular.y = ry;//str2double(string(argv[5]));
 		vel_cmd.angular.z = rz;//str2double(string(argv[6]));
-		if (status_check(vel_cmd)) {
+		/*if (status_check(vel_cmd)) {
             times = 0;
             std_msgs::String err_msg;
             std::stringstream ss;
@@ -106,7 +110,7 @@ int main_(int argc, char **argv, double lx, double ly, double lz, double rx, dou
             err_msg.data = ss.str();
             move_error_pub.publish(err_msg);
             break;
-		}
+		}*/
 		if (slow_flag) {
             vel_cmd.linear.x = vel_cmd.linear.x/2;
             vel_cmd.linear.y = vel_cmd.linear.y/2;
@@ -120,7 +124,7 @@ int main_(int argc, char **argv, double lx, double ly, double lz, double rx, dou
 		//ros::spinOnce();
 	}
 
-
+/*
     //times = stop_time;
 	times = 2;
 
@@ -142,7 +146,7 @@ int main_(int argc, char **argv, double lx, double ly, double lz, double rx, dou
 		loopRate.sleep();
 		//ros::spinOnce();
 	}
-
+*/
     return 0;
 
 }
