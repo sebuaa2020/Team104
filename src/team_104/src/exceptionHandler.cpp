@@ -2,8 +2,9 @@
 namespace exceptionHandler {
 void speak(string s)
 {
-    spk_msg.arg = s;
-    spk_pub.publish(spk_msg);
+    //spk_msg.arg = s;
+    //spk_pub.publish(spk_msg);
+    cout<<s<<"\n";
 }
 string getMessage()
 {
