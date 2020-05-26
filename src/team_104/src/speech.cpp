@@ -91,7 +91,7 @@ void KeywordCB(const std_msgs::String::ConstPtr & msg)
 	
 
     if (isRecognize == false) {
-        exceptionHandler::speechException(msg->data);
+        exceptionHandler::speechException("cannot recognize voice input！");
     }
 
 }
