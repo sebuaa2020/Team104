@@ -6,13 +6,29 @@
 
 #IncludeRegexTransform: 
 
+/home/wangm/Team104/src/team_104/include/exceptionHandler.h
+bits/stdc++.h
+-
+ros/ros.h
+-
+sound_play/SoundRequest.h
+-
+std_msgs/String.h
+-
+
 /home/wangm/Team104/src/team_104/include/speech.h
 bits/stdc++.h
 -
 
+/home/wangm/Team104/src/team_104/src/exceptionHandler.cpp
+exceptionHandler.h
+/home/wangm/Team104/src/team_104/src/exceptionHandler.h
+
 /home/wangm/Team104/src/team_104/src/speech.cpp
 speech.h
 /home/wangm/Team104/src/team_104/src/speech.h
+exceptionHandler.cpp
+/home/wangm/Team104/src/team_104/src/exceptionHandler.cpp
 ros/ros.h
 -
 geometry_msgs/Twist.h
@@ -701,6 +717,22 @@ ros/forwards.h
 /opt/ros/kinetic/include/ros/ros/forwards.h
 
 /opt/ros/kinetic/include/rosconsole/macros_generated.h
+
+/opt/ros/kinetic/include/sound_play/SoundRequest.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
 
 /opt/ros/kinetic/include/std_msgs/String.h
 string

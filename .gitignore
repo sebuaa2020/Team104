@@ -2,3 +2,6 @@ code/.vscode
 *.o
 .idea
 .vscode
+/build/
+/devel/
+src/team_104/src/exceptionHandler.cpp

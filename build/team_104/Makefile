@@ -1021,6 +1021,21 @@ speech/fast:
 .PHONY : speech/fast
 
 # Convenience name for target.
+team_104/CMakeFiles/keyboard.dir/rule:
+	cd /home/wangm/Team104/build && $(MAKE) -f CMakeFiles/Makefile2 team_104/CMakeFiles/keyboard.dir/rule
+.PHONY : team_104/CMakeFiles/keyboard.dir/rule
+
+# Convenience name for target.
+keyboard: team_104/CMakeFiles/keyboard.dir/rule
+
+.PHONY : keyboard
+
+# fast build rule for target.
+keyboard/fast:
+	cd /home/wangm/Team104/build && $(MAKE) -f team_104/CMakeFiles/keyboard.dir/build.make team_104/CMakeFiles/keyboard.dir/build
+.PHONY : keyboard/fast
+
+# Convenience name for target.
 team_104/CMakeFiles/bond_generate_messages_nodejs.dir/rule:
 	cd /home/wangm/Team104/build && $(MAKE) -f CMakeFiles/Makefile2 team_104/CMakeFiles/bond_generate_messages_nodejs.dir/rule
 .PHONY : team_104/CMakeFiles/bond_generate_messages_nodejs.dir/rule
@@ -1560,6 +1575,33 @@ detection/fast:
 	cd /home/wangm/Team104/build && $(MAKE) -f team_104/CMakeFiles/detection.dir/build.make team_104/CMakeFiles/detection.dir/build
 .PHONY : detection/fast
 
+script/keyboard.o: script/keyboard.cpp.o
+
+.PHONY : script/keyboard.o
+
+# target to build an object file
+script/keyboard.cpp.o:
+	cd /home/wangm/Team104/build && $(MAKE) -f team_104/CMakeFiles/keyboard.dir/build.make team_104/CMakeFiles/keyboard.dir/script/keyboard.cpp.o
+.PHONY : script/keyboard.cpp.o
+
+script/keyboard.i: script/keyboard.cpp.i
+
+.PHONY : script/keyboard.i
+
+# target to preprocess a source file
+script/keyboard.cpp.i:
+	cd /home/wangm/Team104/build && $(MAKE) -f team_104/CMakeFiles/keyboard.dir/build.make team_104/CMakeFiles/keyboard.dir/script/keyboard.cpp.i
+.PHONY : script/keyboard.cpp.i
+
+script/keyboard.s: script/keyboard.cpp.s
+
+.PHONY : script/keyboard.s
+
+# target to generate assembly for a file
+script/keyboard.cpp.s:
+	cd /home/wangm/Team104/build && $(MAKE) -f team_104/CMakeFiles/keyboard.dir/build.make team_104/CMakeFiles/keyboard.dir/script/keyboard.cpp.s
+.PHONY : script/keyboard.cpp.s
+
 src/controller.o: src/controller.cpp.o
 
 .PHONY : src/controller.o
@@ -1763,6 +1805,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... speech"
+	@echo "... keyboard"
 	@echo "... bond_generate_messages_nodejs"
 	@echo "... dynamic_reconfigure_generate_messages_eus"
 	@echo "... visualization_msgs_generate_messages_eus"
@@ -1801,6 +1844,9 @@ help:
 	@echo "... detection"
 	@echo "... install/strip"
 	@echo "... install/local"
+	@echo "... script/keyboard.o"
+	@echo "... script/keyboard.i"
+	@echo "... script/keyboard.s"
 	@echo "... src/controller.o"
 	@echo "... src/controller.i"
 	@echo "... src/controller.s"

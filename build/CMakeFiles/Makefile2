@@ -392,6 +392,7 @@ clean: gtest/gtest/CMakeFiles/gtest_main.dir/clean
 # Convenience name for "all" pass in the directory.
 team_104/all: team_104/CMakeFiles/grab.dir/all
 team_104/all: team_104/CMakeFiles/speech.dir/all
+team_104/all: team_104/CMakeFiles/keyboard.dir/all
 team_104/all: team_104/CMakeFiles/controller.dir/all
 team_104/all: team_104/CMakeFiles/move.dir/all
 team_104/all: team_104/CMakeFiles/detection.dir/all
@@ -456,6 +457,7 @@ team_104/clean: team_104/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
 team_104/clean: team_104/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 team_104/clean: team_104/CMakeFiles/actionlib_generate_messages_cpp.dir/clean
 team_104/clean: team_104/CMakeFiles/speech.dir/clean
+team_104/clean: team_104/CMakeFiles/keyboard.dir/clean
 team_104/clean: team_104/CMakeFiles/bond_generate_messages_nodejs.dir/clean
 team_104/clean: team_104/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/clean
 team_104/clean: team_104/CMakeFiles/visualization_msgs_generate_messages_eus.dir/clean
@@ -2478,7 +2480,7 @@ team_104/CMakeFiles/speech.dir/all: team_104/CMakeFiles/actionlib_msgs_generate_
 team_104/CMakeFiles/speech.dir/all: team_104/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/all
 	$(MAKE) -f team_104/CMakeFiles/speech.dir/build.make team_104/CMakeFiles/speech.dir/depend
 	$(MAKE) -f team_104/CMakeFiles/speech.dir/build.make team_104/CMakeFiles/speech.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=34,35 "Built target speech"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=36,37 "Built target speech"
 .PHONY : team_104/CMakeFiles/speech.dir/all
 
 # Include target in all.
@@ -2505,6 +2507,130 @@ team_104/CMakeFiles/speech.dir/clean:
 
 # clean rule for target.
 clean: team_104/CMakeFiles/speech.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target team_104/CMakeFiles/keyboard.dir
+
+# All Build rule for target.
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/bond_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/dynamic_reconfigure_gencfg.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/nodelet_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/move_base_msgs_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/visualization_msgs_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/move_base_msgs_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/roscpp_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/std_msgs_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/nodelet_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/roscpp_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/bond_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/tf_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/move_base_msgs_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/nodelet_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/pcl_ros_gencfg.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/tf2_msgs_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/tf_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/std_srvs_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/nodelet_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/bond_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/std_srvs_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/bond_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/nodelet_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/topic_tools_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/topic_tools_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/pcl_msgs_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/actionlib_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/pcl_msgs_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/std_srvs_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/actionlib_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/bond_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/visualization_msgs_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/pcl_msgs_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/nodelet_topic_tools_gencfg.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/std_srvs_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/std_srvs_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/tf_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/topic_tools_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/topic_tools_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/topic_tools_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/tf2_msgs_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/tf_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/tf_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/actionlib_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/actionlib_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/actionlib_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/move_base_msgs_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
+team_104/CMakeFiles/keyboard.dir/all: team_104/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/all
+	$(MAKE) -f team_104/CMakeFiles/keyboard.dir/build.make team_104/CMakeFiles/keyboard.dir/depend
+	$(MAKE) -f team_104/CMakeFiles/keyboard.dir/build.make team_104/CMakeFiles/keyboard.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=30,31 "Built target keyboard"
+.PHONY : team_104/CMakeFiles/keyboard.dir/all
+
+# Include target in all.
+all: team_104/CMakeFiles/keyboard.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+team_104/CMakeFiles/keyboard.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangm/Team104/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 team_104/CMakeFiles/keyboard.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wangm/Team104/build/CMakeFiles 0
+.PHONY : team_104/CMakeFiles/keyboard.dir/rule
+
+# Convenience name for target.
+keyboard: team_104/CMakeFiles/keyboard.dir/rule
+
+.PHONY : keyboard
+
+# clean rule for target.
+team_104/CMakeFiles/keyboard.dir/clean:
+	$(MAKE) -f team_104/CMakeFiles/keyboard.dir/build.make team_104/CMakeFiles/keyboard.dir/clean
+.PHONY : team_104/CMakeFiles/keyboard.dir/clean
+
+# clean rule for target.
+clean: team_104/CMakeFiles/keyboard.dir/clean
 
 .PHONY : clean
 
@@ -3590,7 +3716,7 @@ team_104/CMakeFiles/move.dir/all: team_104/CMakeFiles/actionlib_msgs_generate_me
 team_104/CMakeFiles/move.dir/all: team_104/CMakeFiles/move_base_msgs_generate_messages_lisp.dir/all
 	$(MAKE) -f team_104/CMakeFiles/move.dir/build.make team_104/CMakeFiles/move.dir/depend
 	$(MAKE) -f team_104/CMakeFiles/move.dir/build.make team_104/CMakeFiles/move.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=30,31 "Built target move"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=32,33 "Built target move"
 .PHONY : team_104/CMakeFiles/move.dir/all
 
 # Include target in all.
@@ -4565,7 +4691,7 @@ xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_lisp.dir/all: team_10
 xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_lisp.dir/all: xfyun_kinetic/CMakeFiles/_xfyun_waterplus_generate_messages_check_deps_IATSwitch.dir/all
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_lisp.dir/build.make xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_lisp.dir/depend
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_lisp.dir/build.make xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=45 "Built target xfyun_waterplus_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=47 "Built target xfyun_waterplus_generate_messages_lisp"
 .PHONY : xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4617,7 +4743,7 @@ xfyun_kinetic/CMakeFiles/tts_node.dir/all: xfyun_kinetic/CMakeFiles/xfyun_waterp
 xfyun_kinetic/CMakeFiles/tts_node.dir/all: xfyun_kinetic/CMakeFiles/_catkin_empty_exported_target.dir/all
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/tts_node.dir/build.make xfyun_kinetic/CMakeFiles/tts_node.dir/depend
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/tts_node.dir/build.make xfyun_kinetic/CMakeFiles/tts_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=36,37 "Built target tts_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=38,39 "Built target tts_node"
 .PHONY : xfyun_kinetic/CMakeFiles/tts_node.dir/all
 
 # Include target in all.
@@ -4687,7 +4813,7 @@ xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_eus.dir/all: team_104
 xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_eus.dir/all: xfyun_kinetic/CMakeFiles/_xfyun_waterplus_generate_messages_check_deps_IATSwitch.dir/all
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_eus.dir/build.make xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_eus.dir/depend
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_eus.dir/build.make xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=43,44 "Built target xfyun_waterplus_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=45,46 "Built target xfyun_waterplus_generate_messages_eus"
 .PHONY : xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4752,7 +4878,7 @@ xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_nodejs.dir/all: team_
 xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_nodejs.dir/all: xfyun_kinetic/CMakeFiles/_xfyun_waterplus_generate_messages_check_deps_IATSwitch.dir/all
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_nodejs.dir/build.make xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_nodejs.dir/depend
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_nodejs.dir/build.make xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=46 "Built target xfyun_waterplus_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=48 "Built target xfyun_waterplus_generate_messages_nodejs"
 .PHONY : xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4785,7 +4911,7 @@ xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_cpp.dir/all: team_104
 xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_cpp.dir/all: xfyun_kinetic/CMakeFiles/_xfyun_waterplus_generate_messages_check_deps_IATSwitch.dir/all
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_cpp.dir/build.make xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_cpp.dir/depend
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_cpp.dir/build.make xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=42 "Built target xfyun_waterplus_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=44 "Built target xfyun_waterplus_generate_messages_cpp"
 .PHONY : xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4891,7 +5017,7 @@ xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_py.dir/all: team_104/
 xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_py.dir/all: xfyun_kinetic/CMakeFiles/_xfyun_waterplus_generate_messages_check_deps_IATSwitch.dir/all
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_py.dir/build.make xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_py.dir/depend
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_py.dir/build.make xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=47,48 "Built target xfyun_waterplus_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=49,50 "Built target xfyun_waterplus_generate_messages_py"
 .PHONY : xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5064,7 +5190,7 @@ xfyun_kinetic/CMakeFiles/wp_voice_cmd_cn.dir/all: xfyun_kinetic/CMakeFiles/xfyun
 xfyun_kinetic/CMakeFiles/wp_voice_cmd_cn.dir/all: xfyun_kinetic/CMakeFiles/_catkin_empty_exported_target.dir/all
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/wp_voice_cmd_cn.dir/build.make xfyun_kinetic/CMakeFiles/wp_voice_cmd_cn.dir/depend
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/wp_voice_cmd_cn.dir/build.make xfyun_kinetic/CMakeFiles/wp_voice_cmd_cn.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=40,41 "Built target wp_voice_cmd_cn"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=42,43 "Built target wp_voice_cmd_cn"
 .PHONY : xfyun_kinetic/CMakeFiles/wp_voice_cmd_cn.dir/all
 
 # Include target in all.
@@ -5121,7 +5247,7 @@ xfyun_kinetic/CMakeFiles/wav_rate_node.dir/all: xfyun_kinetic/CMakeFiles/xfyun_w
 xfyun_kinetic/CMakeFiles/wav_rate_node.dir/all: xfyun_kinetic/CMakeFiles/_catkin_empty_exported_target.dir/all
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/wav_rate_node.dir/build.make xfyun_kinetic/CMakeFiles/wav_rate_node.dir/depend
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/wav_rate_node.dir/build.make xfyun_kinetic/CMakeFiles/wav_rate_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=38,39 "Built target wav_rate_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=40,41 "Built target wav_rate_node"
 .PHONY : xfyun_kinetic/CMakeFiles/wav_rate_node.dir/all
 
 # Include target in all.
@@ -5178,7 +5304,7 @@ xfyun_kinetic/CMakeFiles/recorder_wav_node.dir/all: xfyun_kinetic/CMakeFiles/xfy
 xfyun_kinetic/CMakeFiles/recorder_wav_node.dir/all: xfyun_kinetic/CMakeFiles/_catkin_empty_exported_target.dir/all
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/recorder_wav_node.dir/build.make xfyun_kinetic/CMakeFiles/recorder_wav_node.dir/depend
 	$(MAKE) -f xfyun_kinetic/CMakeFiles/recorder_wav_node.dir/build.make xfyun_kinetic/CMakeFiles/recorder_wav_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=32,33 "Built target recorder_wav_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wangm/Team104/build/CMakeFiles --progress-num=34,35 "Built target recorder_wav_node"
 .PHONY : xfyun_kinetic/CMakeFiles/recorder_wav_node.dir/all
 
 # Include target in all.

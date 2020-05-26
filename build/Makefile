@@ -1024,6 +1024,19 @@ speech/fast:
 .PHONY : speech/fast
 
 #=============================================================================
+# Target rules for targets named keyboard
+
+# Build rule for target.
+keyboard: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 keyboard
+.PHONY : keyboard
+
+# fast build rule for target.
+keyboard/fast:
+	$(MAKE) -f team_104/CMakeFiles/keyboard.dir/build.make team_104/CMakeFiles/keyboard.dir/build
+.PHONY : keyboard/fast
+
+#=============================================================================
 # Target rules for targets named bond_generate_messages_nodejs
 
 # Build rule for target.
@@ -2038,6 +2051,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... speech"
+	@echo "... keyboard"
 	@echo "... bond_generate_messages_nodejs"
 	@echo "... dynamic_reconfigure_generate_messages_eus"
 	@echo "... visualization_msgs_generate_messages_eus"
