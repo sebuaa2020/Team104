@@ -1,6 +1,6 @@
 # 简易餐厅服务机器人
 
-## 依赖需求
+## ros依赖
 
 ```shell
 roscpp
@@ -21,7 +21,7 @@ actionlib
 ## 目录需求
 
 ```shell
-team108_ws/code/src
+$HOME/team108_ws/src
 ```
 
 ## 编译
@@ -34,7 +34,7 @@ catkin_make
 ## 运行
 
 ```shell
-python3 contrller.py
+rosrun team_104 controller
 ```
 
 
