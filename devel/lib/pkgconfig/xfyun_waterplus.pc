@@ -1,8 +1,0 @@
-prefix=/home/wangm/Team104/devel
-
-Name: xfyun_waterplus
-Description: Description of xfyun_waterplus
-Version: 0.0.0
-Cflags: -I/home/wangm/Team104/devel/include -I/home/wangm/Team104/src/xfyun_kinetic/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime
