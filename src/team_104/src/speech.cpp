@@ -15,7 +15,7 @@ void KeywordCB(const std_msgs::String::ConstPtr & msg)
     vel_cmd.angular.x = 0;
     vel_cmd.angular.y = 0;
     vel_cmd.angular.z = 0;
-
+    cout<< "prepare to recognize!!!!!" <<endl;
     int nFindIndex = 0;
     bool isMove = false;
     nFindIndex = msg->data.find("Forward");
@@ -78,13 +78,14 @@ void KeywordCB(const std_msgs::String::ConstPtr & msg)
 }
 
 int main(int argc, char** argv)
-{
+{   
+    cout<< "test begin!!!!!!!!11" <<endl;
     ros::init(argc, argv, "wpb_home_voice_cmd");
 
     ros::NodeHandle n;
     vel_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
 
-    ros::Subscriber sub_sr = n.subscribe("/recognizer/output", 10, KeywordCB);
+    ros::Subscriber sub_sr = n.subscribe("/xfyun/iat", 10, KeywordCB);
 
     ros::spin();
 
