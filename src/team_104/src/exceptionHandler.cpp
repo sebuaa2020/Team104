@@ -2,8 +2,9 @@
 namespace exceptionHandler {
 void speak(string s)
 {
-    spk_msg.arg = s;
-    spk_pub.publish(spk_msg);
+    //spk_msg.arg = s;
+    //spk_pub.publish(spk_msg);
+    cout<<s<<"\n";
 }
 string getMessage()
 {
@@ -13,7 +14,8 @@ void speechException(string in)
 {
     ROS_INFO("Failed to get instruction from speech");
     message = "speech exception\n" + in;
-    speak(message);
+    cout<< message <<endl;
+    //speak(message);
 }
 void autoExecption(string in)
 {

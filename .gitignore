@@ -2,3 +2,5 @@ code/.vscode
 *.o
 .idea
 .vscode
+/build/
+/devel/
