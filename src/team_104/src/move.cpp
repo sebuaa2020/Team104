@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 
 	v=0.3;        
 	t=arg/v;
-        if(arg>5)9
+        if(arg>5)
         {
             exceptionHandler::otherError("Can't move so fast!");
             assert(0);
