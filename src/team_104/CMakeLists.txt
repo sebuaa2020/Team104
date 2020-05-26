@@ -251,3 +251,13 @@ add_dependencies(speech ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TA
 target_link_libraries(speech
   ${catkin_LIBRARIES}
 )
+
+
+add_executable(keyboard
+  script/keyboard.cpp
+)
+
+add_dependencies(keyboard ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(keyboard
+  ${catkin_LIBRARIES}
+)
