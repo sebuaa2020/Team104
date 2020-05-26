@@ -14,8 +14,7 @@ void speechException(string in)
 {
     ROS_INFO("Failed to get instruction from speech");
     message = "speech exception\n" + in;
-    cout<< message <<endl;
-    //speak(message);
+    speak(message);
 }
 void autoExecption(string in)
 {
