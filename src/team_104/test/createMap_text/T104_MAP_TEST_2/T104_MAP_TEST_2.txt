@@ -1,0 +1,12 @@
+测试条件：
+	编译完成
+	source ./devel/setup.bash
+	rosrun team_104 controller
+
+测试步骤：
+	1：输入1启动gazebo
+	2：输入3保存地图，显示报错信息“I can't save map without gampping first!”
+
+
+测试涵盖代码所有异常分支
+结果均符合期望
