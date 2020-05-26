@@ -40,9 +40,10 @@ int main(int argc, char** argv)
     double v;
     if(cmd=="forward"||cmd=="backward"||cmd=="left"||cmd=="right")
     {
-        v=0.3;
-        t=arg/v;
-        if(arg>5)
+
+	v=0.3;        
+	t=arg/v;
+        if(arg>5)9
         {
             exceptionHandler::otherError("Can't move so fast!");
             assert(0);
@@ -50,12 +51,12 @@ int main(int argc, char** argv)
     }
     else if(cmd=="rotate_l"||cmd=="rotate_r")
     {
-        if(arg>180)
+        if(arg>60)
         {
             exceptionHandler::otherError("Can't rotate so fast");
             assert(0);
         }
-        v=15*pi/180;
+	v=15*pi/180;
         t=arg*pi/180/v;
     }
     else 

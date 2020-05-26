@@ -1,8 +1,0 @@
-prefix=/home/pudding/桌面/Team104/devel
-
-Name: team_104
-Description: Description of team_104
-Version: 0.0.0
-Cflags: -I/home/pudding/桌面/Team104/src/team_104/include
-Libs: -L${prefix}/lib 
-Requires: 

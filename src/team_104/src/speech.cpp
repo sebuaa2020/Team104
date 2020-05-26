@@ -3,6 +3,7 @@
 #include <geometry_msgs/Twist.h>
 #include <std_msgs/String.h>
 
+
 static ros::Publisher vel_pub;
 void KeywordCB(const std_msgs::String::ConstPtr & msg)
 {
@@ -15,7 +16,7 @@ void KeywordCB(const std_msgs::String::ConstPtr & msg)
     vel_cmd.angular.x = 0;
     vel_cmd.angular.y = 0;
     vel_cmd.angular.z = 0;
-
+    cout<< "prepare to recognize!!!!!" <<endl;
     int nFindIndex = 0;
     bool isMove = false;
     nFindIndex = msg->data.find("Forward");
@@ -74,12 +75,14 @@ void KeywordCB(const std_msgs::String::ConstPtr & msg)
     {
 	//命令机器人停止跟随
     }
+	
 
 
 }
 
 int main(int argc, char** argv)
-{
+{   
+    cout<< "test begin!!!!!!!!11" <<endl;
     ros::init(argc, argv, "wpb_home_voice_cmd");
 
     ros::NodeHandle n;

@@ -1,2 +1,0 @@
-robot_sim_demo:team_104:xfyun_kinetic
--DCATKIN_DEVEL_PREFIX=/home/pudding/桌面/Team104/devel -DCMAKE_INSTALL_PREFIX=/home/pudding/桌面/Team104/install -G Unix Makefiles

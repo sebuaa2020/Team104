@@ -57,6 +57,10 @@ void gmapping()
     if (ret != -1 || ret != 127) {
         cout << "gmapping_start,please use keyboard to controll" << endl;
         setstate("gmapping", 1);
+	ret = system("gnome-terminal -x roslaunch wpb_home_tutorials hector_mapping.launch");
+	if (ret != -1 || ret != 127) {
+            cout << "slam_start,please use keyboard to controll" << endl;
+	} 
     } else {
         exceptionHandler::cmdErrorException("start gmapping failed");
     }
@@ -64,7 +68,7 @@ void gmapping()
 
 void saveMap()
 {
-    int ret = system("rosrun map_server map_saver -f  $HOME/Team104_ws/src/code/maps/map");
+    int ret = system("rosrun map_server map_saver -f  ./src/team_104/maps/map");
     if (ret != -1 || ret != 127) {
         puts("map saved");
         setstate("gmapping", 0);
