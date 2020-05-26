@@ -261,3 +261,14 @@ add_dependencies(keyboard ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_
 target_link_libraries(keyboard
   ${catkin_LIBRARIES}
 )
+
+#test________________________________________
+
+add_executable(move_test
+  test/move_test.cpp
+)
+
+add_dependencies(move_test ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(move_test
+  ${catkin_LIBRARIES}
+)
