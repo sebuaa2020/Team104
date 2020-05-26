@@ -1,0 +1,18 @@
+测试条件：
+	编译完成
+	source ./devel/setup.bash
+	roslaunch robot_sim_demo robot_spawn.launch
+	roslaunch xfyun_waterplus iat_en.launch
+
+		测试项目               结果期望
+	1、语音输入 "Stop follow"	异常
+	2、语音输入 "Hello"		异常
+	3、语音输入 "Nice"		异常
+	4、语音输入 "Water"		异常
+	5、语音输入 "Where"		异常
+	
+	
+
+
+测试涵盖代码部分异常情况
+结果均符合期望

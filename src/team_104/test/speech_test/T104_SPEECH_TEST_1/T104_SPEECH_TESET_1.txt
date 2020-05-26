@@ -1,0 +1,21 @@
+测试条件：
+	编译完成
+	source ./devel/setup.bash
+	roslaunch robot_sim_demo robot_spawn.launch
+	roslaunch xfyun_waterplus iat_en.launch
+
+		测试项目               结果期望
+	1、语音输入 "Forward"		正常	
+	2、语音输入 "Backward"		正常
+	3、语音输入 "Left"		正常
+	4、语音输入 "Right"		正常
+	5、语音输入 "Stop"		正常
+	6、语音输入 "Master"		正常
+	7、语音输入 "Follow"		正常
+	8、语音输入 "Stop Following"	正常
+	
+	
+
+
+测试涵盖代码所有正常分支
+结果均符合期望
