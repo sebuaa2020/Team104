@@ -1,0 +1,15 @@
+# Hashes of file build rules.
+8f1c878b5c00d6370cf1ad670534086f /home/pudding/桌面/Team104/devel/include/xfyun_waterplus/IATSwitch.h
+c8b9706f73ed40dd76451647fdcaf78f /home/pudding/桌面/Team104/devel/lib/python2.7/dist-packages/xfyun_waterplus/srv/_IATSwitch.py
+1556efd26f20cba6b3d63fbda5e1aac1 /home/pudding/桌面/Team104/devel/lib/python2.7/dist-packages/xfyun_waterplus/srv/__init__.py
+c17d8ab3269d41cee942fd2c5f081291 /home/pudding/桌面/Team104/devel/share/common-lisp/ros/xfyun_waterplus/srv/IATSwitch.lisp
+04fd3f472ef60de04d18d028365cfc3f /home/pudding/桌面/Team104/devel/share/gennodejs/ros/xfyun_waterplus/srv/IATSwitch.js
+e2ded60fe5922ee7884c9a6e395281b4 /home/pudding/桌面/Team104/devel/share/roseus/ros/xfyun_waterplus/manifest.l
+c0c548a20c3fb9d300d8c361a8d021cd /home/pudding/桌面/Team104/devel/share/roseus/ros/xfyun_waterplus/srv/IATSwitch.l
+3f586ac4ce124b26a49123b8a806ce5b CMakeFiles/clean_test_results
+47cadfbf775590d05a2c32053352c47e xfyun_kinetic/CMakeFiles/_xfyun_waterplus_generate_messages_check_deps_IATSwitch
+7fe45ff28a6e2350b36384341135f06c xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_cpp
+7fe45ff28a6e2350b36384341135f06c xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_eus
+7fe45ff28a6e2350b36384341135f06c xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_lisp
+7fe45ff28a6e2350b36384341135f06c xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_nodejs
+7fe45ff28a6e2350b36384341135f06c xfyun_kinetic/CMakeFiles/xfyun_waterplus_generate_messages_py
