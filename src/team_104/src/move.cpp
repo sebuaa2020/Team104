@@ -51,7 +51,7 @@ int main(int argc, char** argv)
     }
     else if(cmd=="rotate_l"||cmd=="rotate_r")
     {
-        if(arg>60)
+        if(arg>180)
         {
             exceptionHandler::otherError("Can't rotate so fast");
             assert(0);
