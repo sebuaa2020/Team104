@@ -51,4 +51,10 @@ void cmdErrorException(string in)
     message = "cmd error\n" + in;
     speak(message);
 }
+void otherError(string in)
+{
+    ROS_INFO("other error");
+    message = in;
+    cout<<in<<"\n";
+}
 }
