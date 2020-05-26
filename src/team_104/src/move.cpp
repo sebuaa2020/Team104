@@ -121,7 +121,7 @@ int main_(int argc, char **argv, double lx, double ly, double lz, double rx, dou
 
 
     //times = stop_time;
-	times = 5;
+	times = 2;
 
 	while(ros::ok()&&times>0) {
 
