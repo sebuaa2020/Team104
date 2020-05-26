@@ -4,4 +4,3 @@ code/.vscode
 .vscode
 /build/
 /devel/
-src/team_104/src/exceptionHandler.cpp
