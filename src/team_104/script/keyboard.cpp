@@ -1,10 +1,20 @@
+#include <stdio.h>
+#include <termios.h>           
+#include <unistd.h>     
 #include <bits/stdc++.h>
 using namespace std;
 int main()
 {
+    static struct termios oldt, newt;
+    tcgetattr( STDIN_FILENO, &oldt);
+    newt = oldt;
+    newt.c_lflag &= ~(ICANON);          
+    tcsetattr( STDIN_FILENO, TCSANOW, &newt);
+    system("stty -echo");
+
+
     puts("\tu\ti\to\n\n\tj\tk\tl\n");
     puts("u: turn left\no: turn right\ni: go forward\nj: go left\nk: go backward\nl: go right\nq: quit");
-    system("stty -echo");
     char ch;
     while (1) {
         ch = getchar();
@@ -42,5 +52,6 @@ int main()
         }
     }
     system("stty echo");
+    tcsetattr( STDIN_FILENO, TCSANOW, &oldt);
     return 0;
 }
