@@ -17,7 +17,7 @@ static std::string strTonePlay;
 
 #define FRAME_LEN	640 
 #define	BUFFER_SIZE	4096
-
+bool get_message = false;
 static ros::Publisher iat_pub;
 static int nRecDuring = 10;
 
@@ -45,8 +45,11 @@ void on_result(const char *result, char is_last)
 		std_msgs::String strResult;
 		std::string str(result);
 		strResult.data = str;
+		
 		iat_pub.publish(strResult);
+		get_message = true;
 	}
+	
 }
 
 void on_speech_begin()
@@ -69,10 +72,21 @@ void on_speech_begin()
 	}
 }
 
+
 void on_speech_end(int reason)
 {
-	if (reason == END_REASON_VAD_DETECT)
+	if (reason == END_REASON_VAD_DETECT){
+		if(get_message == false) {
+			std_msgs::String strResult;
+			std::string str("NULL");
+			strResult.data = str;
+			iat_pub.publish(strResult);
+		}else{
+			get_message = false;
+		}
 		printf("正在准备下一次录音,请稍等... \n");
+	}
+		
 	else
 		printf("\nRecognizer error %d\n", reason);
 }
