@@ -1,5 +1,6 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
+#include "exceptionHandler.cpp"
 #define go_times 1000000
 #define stop_time 1000000
 #include <iostream>
@@ -14,7 +15,67 @@ int slow(ros::Subscriber scan_sub);
 void scanCallback(const sensor_msgs::LaserScan::ConstPtr& msg);//slow
 int status_check(geometry_msgs::Twist vel_cmd);
 int slow_flag;
-int main(int argc, char** argv) {
+int main_(int argc, char **argv, double lx, double ly, double lz, double rx, double ry, double rz,double t);
+int main(int argc, char** argv)
+{
+    if(argc<3)
+    {
+        exceptionHandler::otherError("the number of arguments is smaller than 2");
+        assert(0);
+    }
+    else if(argc>3)
+    {
+        exceptionHandler::otherError("the number of arguments is bigger than 2");
+        assert(0);
+    }
+    string cmd=(string)argv[1];
+    double arg=str2double((string)(argv[2]));
+    if(arg<0)
+    {
+        exceptionHandler::otherError("Argument must be positive");
+        assert(0);
+    }
+    double pi=acos(-1);
+    double t;
+    double v;
+    if(cmd=="forward"||cmd=="backward"||cmd=="left"||cmd=="right")
+    {
+        v=0.3;
+        t=arg/v;
+        if(arg>5)
+        {
+            exceptionHandler::otherError("Can't move so fast!");
+            assert(0);
+        }
+    }
+    else if(cmd=="rotate_l"||cmd=="rotate_r")
+    {
+        if(arg>180)
+        {
+            exceptionHandler::otherError("Can't rotate so fast");
+            assert(0);
+        }
+        v=15*pi/180;
+        t=arg*pi/180/v;
+    }
+    else 
+    {
+        exceptionHandler::cmdErrorException("");
+        assert(0);
+    }
+    if(cmd=="forward")
+        main_(argc,argv,v,0,0,0,0,0,t);
+    else if(cmd=="backward")
+        main_(argc,argv,-v,0,0,0,0,0,t);
+    else if(cmd=="left")
+        main_(argc,argv,0,v,0,0,0,0,t);
+    else if(cmd=="right")
+        main_(argc,argv,0,-v,0,0,0,0,t);
+    else if(cmd=="rotate_l")
+        main_(argc,argv,0,0,0,0,0,v,t);
+    else main_(argc,argv,0,0,0,0,0,-v,t);
+}
+int main_(int argc, char **argv, double lx, double ly, double lz, double rx, double ry, double rz,double t) {
 
 	ros::init(argc, argv, "move");
 	ros::NodeHandle n;
@@ -22,30 +83,20 @@ int main(int argc, char** argv) {
 	ros::Subscriber scan_sub = n.subscribe("/scan",1000,scanCallback);
 	ros::Publisher move_error_pub = n.advertise<std_msgs::String>("move_error", 1000);
 	ros::Rate loopRate(10);
-    if(argc != 7){
-        cout<<"argument count error!!! the number is: ,"<<argc - 1;
-        if(argc>7){
-            cout<<"bigger";
-        }else{
-            cout<<"smaller";
-        }
-
-        cout<< "than 6." <<endl;
-    }
     //int times = go_times;
-	int times = 5;
+	int times = t;
 
 	while(ros::ok()&&times>0) {
 
 		geometry_msgs::Twist vel_cmd;
 
-		vel_cmd.linear.x = str2double(string(argv[1]));
-		vel_cmd.linear.y = str2double(string(argv[2]));
-		vel_cmd.linear.z = str2double(string(argv[3]));
+		vel_cmd.linear.x = lx;//str2double(string(argv[1]));
+		vel_cmd.linear.y = ly;//str2double(string(argv[2]));
+		vel_cmd.linear.z = lz;//str2double(string(argv[3]));
 
-		vel_cmd.angular.x = str2double(string(argv[4]));
-		vel_cmd.angular.y = str2double(string(argv[5]));
-		vel_cmd.angular.z = str2double(string(argv[6]));
+		vel_cmd.angular.x = rx;//str2double(string(argv[4]));
+		vel_cmd.angular.y = ry;//str2double(string(argv[5]));
+		vel_cmd.angular.z = rz;//str2double(string(argv[6]));
 		if (status_check(vel_cmd)) {
             times = 0;
             std_msgs::String err_msg;
@@ -70,7 +121,7 @@ int main(int argc, char** argv) {
 
 
     //times = stop_time;
-	times = 5;
+	times = 2;
 
 	while(ros::ok()&&times>0) {
 

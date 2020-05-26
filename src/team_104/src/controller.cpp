@@ -53,7 +53,7 @@ void start()
 
 void gmapping()
 {
-    int ret = system("gnome-terminal -x roslaunch vel_pkg gmapping.launch");
+    int ret = system("gnome-terminal -x roslaunch team_104 gmapping.launch");
     if (ret != -1 || ret != 127) {
         cout << "gmapping_start,please use keyboard to controll" << endl;
         setstate("gmapping", 1);
@@ -64,7 +64,7 @@ void gmapping()
 
 void saveMap()
 {
-    int ret = system("rosrun map_server map_saver -f  ~/Team104/Team104_ws/src/code/maps/map");
+    int ret = system("rosrun map_server map_saver -f  $HOME/Team104_ws/src/code/maps/map");
     if (ret != -1 || ret != 127) {
         puts("map saved");
         setstate("gmapping", 0);
@@ -75,7 +75,7 @@ void saveMap()
 
 void keyboardControll()
 {
-    int ret = system("gnome-terminal -x rosrun code robot_keyboard_teleop.py");
+    int ret = system("gnome-terminal -x rosrun team_104 keyboard");
     if (ret != -1 || ret != 127) {
         puts("start control by keyboard");
     } else {
@@ -84,7 +84,7 @@ void keyboardControll()
 }
 void navigation()
 {
-    int ret = system("gnome-terminal -x roslaunch code navigation.launch");
+    int ret = system("gnome-terminal -x roslaunch team_104 navigation.launch");
     if (ret != -1 || ret != 127) {
         puts("navigation start!");
     } else {
@@ -93,7 +93,7 @@ void navigation()
 }
 void setPoint(string x, string y)
 {
-    string str = "gnome-terminal -x rosrun code navigation " + x + " " + y;
+    string str = "gnome-terminal -x rosrun team_104 navigation " + x + " " + y;
     int ret = system(str.data());
     if (ret != -1 || ret != 127) {
         cout << "point set, start move!" << endl;
