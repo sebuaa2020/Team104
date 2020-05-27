@@ -1,0 +1,15 @@
+测试条件：
+	编译完成
+	source ./devel/setup.bash
+	roslaunch robot_sim_demo robot_spawn.launch
+	roslaunch wpb_home_tutorials nav.launch
+	
+		测试项目               结果期望
+	1、向前运动1m		   	   正常规划路径
+	2、修改x,y的值为其他可达点 正常规划路径
+	
+	
+测试运行：
+	rosrun team_104 path
+
+结果符合期望

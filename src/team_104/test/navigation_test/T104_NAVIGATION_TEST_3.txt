@@ -1,0 +1,14 @@
+测试条件：
+	编译完成
+	source ./devel/setup.bash
+	roslaunch robot_sim_demo robot_spawn.launch
+	roslaunch wpb_home_tutorials nav.launch
+	
+		测试项目               结果期望
+	1、未完成建图	   		   反馈错误信息
+	
+	
+测试运行：
+	rosrun team_104 path
+
+结果符合期望
