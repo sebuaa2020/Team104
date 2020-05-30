@@ -265,7 +265,7 @@ target_link_libraries(keyboard
 #test________________________________________
 
 add_executable(move_test
-  test/move_test.cpp
+  test/move_test/move_test.cpp
 )
 
 add_dependencies(move_test ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
