@@ -34,7 +34,7 @@ catkin_make
 ## 运行
 
 ```shell
-rosrun team_104 controller
+python3 UI.py
 ```
 
 
