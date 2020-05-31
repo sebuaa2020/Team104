@@ -1,9 +1,6 @@
 <launch>
   <master auto="start"/>
 
-  <!-- Run wpb_home core -->
-  
-
   <!--- Run Rplidar -->
   <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
     <param name="serial_port"         type="string" value="/dev/rplidar"/>  
