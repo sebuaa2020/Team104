@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
         else
         ROS_INFO("The base failed for some reason");
         return 0;
-    }else{
+    } else{
         cout<<"too many argc!!!!!"<<endl;
     }
         
