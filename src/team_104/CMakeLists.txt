@@ -252,6 +252,14 @@ target_link_libraries(speech
   ${catkin_LIBRARIES}
 )
 
+add_executable(navigate
+  src/navigate.cpp
+)
+
+add_dependencies(navigate ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(navigate
+  ${catkin_LIBRARIES}
+)
 
 add_executable(keyboard
   script/keyboard.cpp

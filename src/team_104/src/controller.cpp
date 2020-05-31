@@ -88,7 +88,7 @@ void keyboardControll()
 }
 void navigation()
 {
-    int ret = system("gnome-terminal -x roslaunch team_104 navigation.launch");
+    int ret = system("gnome-terminal -x roslaunch wpb_home_tutorials nav_cruise.launch");
     if (ret != -1 || ret != 127) {
         puts("navigation start!");
     } else {
