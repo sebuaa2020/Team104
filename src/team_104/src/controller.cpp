@@ -110,7 +110,7 @@ int main()
 {
     while (1) {
         puts("robot started!\nplease type in and instruction:");
-        puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 导航\n6: 设定地点");
+        puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 导航\n6: 设定地点\n7:语音控制");
         int input;
         scanf("%d", &input);
         if (input == 1) {
@@ -138,7 +138,9 @@ int main()
             cin >> controller::s;
             cin >> controller::t;
             controller::setPoint(controller::s, controller::t);
-        } else {
+        } else if (input == 7) {
+	    
+	} else {
             puts("there's no other cmds except 1~6!");
         }
     }
