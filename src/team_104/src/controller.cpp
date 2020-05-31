@@ -102,7 +102,6 @@ void navigation()
 void setPoint(string x, string y)
 {   
     string str = "gnome-terminal -x rosrun team_104 navigate " + x + " " + y;
-    cout<< str <<endl;
     int ret = system(str.data());
     if (ret != -1 || ret != 127) {
         cout << "point set, start move!" << endl;
@@ -126,6 +125,7 @@ void KeywordCB(const std_msgs::String::ConstPtr & msg)
 {
     ROS_WARN("[KeywordCB] - %s",msg->data.c_str());
     s = msg->data.c_str();
+    ros::shutdown();
 }
 
 }
@@ -177,8 +177,7 @@ int main(int argc,char** argv)
                 controller::speech();
                 ros::Subscriber sub_sr = nh.subscribe("/xfyun/iat", 10, controller::KeywordCB);
                 ros::spin();
-                cout<<controller::s<<endl;
-                //controller::setPoint(controller::s,""); 
+                controller::setPoint(controller::s,""); 
             }
             
         }else {
