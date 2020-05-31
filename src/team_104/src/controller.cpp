@@ -1,5 +1,9 @@
 #include "controller.h"
 #include "exceptionHandler.cpp"
+#include <ros/ros.h>
+#include <geometry_msgs/Twist.h>
+#include <std_msgs/String.h>
+
 using namespace std;
 namespace STATE {
 bool state[5] = { 0 };
@@ -88,7 +92,7 @@ void keyboardControll()
 }
 void navigation()
 {
-    int ret = system("gnome-terminal -x roslaunch wpb_home_tutorials nav_cruise.launch");
+    int ret = system("gnome-terminal -x roslaunch team_104 nav_initial_set.launch");
     if (ret != -1 || ret != 127) {
         puts("navigation start!");
     } else {
@@ -97,7 +101,7 @@ void navigation()
 }
 void setPoint(string x, string y)
 {
-    string str = "gnome-terminal -x rosrun team_104 navigation " + x + " " + y;
+    string str = "gnome-terminal -x rosrun team_104 navigate " + x + " " + y;
     int ret = system(str.data());
     if (ret != -1 || ret != 127) {
         cout << "point set, start move!" << endl;
@@ -110,7 +114,7 @@ int main()
 {
     while (1) {
         puts("robot started!\nplease type in and instruction:");
-        puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 导航\n6: 设定地点");
+        puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 开始导航\n6: 设置目标地点");
         int input;
         scanf("%d", &input);
         if (input == 1) {
@@ -134,10 +138,22 @@ int main()
         } else if (input == 5) {
             controller::navigation();
         } else if (input == 6) {
-            puts("type in the point you want to set!");
-            cin >> controller::s;
-            cin >> controller::t;
-            controller::setPoint(controller::s, controller::t);
+            puts("1: 键入目标地图坐标   2: 键入目标名字    3: 启用语音输入目标名字\n");
+            //目标点表
+            scanf("%d",&input);
+            if(input == 1){
+                puts("type in the point you want to set!");
+                cin >> controller::s;
+                cin >> controller::t;
+                controller::setPoint(controller::s, controller::t);
+            }else if(input == 2){
+                puts("type in the point you want to set!");
+                cin >> controller::s;
+                controller::setPoint(controller::s);
+            }else if(input == 3){
+                
+            }
+            
         } else {
             puts("there's no other cmds except 1~6!");
         }

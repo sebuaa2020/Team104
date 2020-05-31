@@ -106,7 +106,7 @@ int main(int argc, char** argv)
 
     ros::Subscriber sub_sr = n.subscribe("/xfyun/iat", 10, KeywordCB);
     
-    ros::spin();
+    ros::spinOnce();
 
     return 0;
 }
