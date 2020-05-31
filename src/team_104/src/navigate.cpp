@@ -13,9 +13,9 @@ int main(int argc, char** argv) {
     ros::init(argc, argv, "navigation_interface_node");
     MoveBaseClient ac("move_base", true);
  
-    // Wait 60 seconds for the action server to become available
+    // Wait 50 seconds for the action server to become available
     ROS_INFO("Waiting for the move_base action server");
-    ac.waitForServer(ros::Duration(60));
+    ac.waitForServer(ros::Duration(50));
     ROS_INFO("Connected to move base server");
  
     // Send a goal to move_base
@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
     double x,y;
 
     if (argc == 2){
-
+        cout<<"okokokokkokook"<<endl;
     }else if(argc == 3){
         x = strtod(argv[1],NULL);
         y = strtod(argv[2],NULL);

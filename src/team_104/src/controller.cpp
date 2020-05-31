@@ -113,7 +113,7 @@ void navigation()
     }
 }
 void setPoint(string x, string y)
-{
+{   
     string str = "gnome-terminal -x rosrun team_104 navigate " + x + " " + y;
     int ret = system(str.data());
     if (ret != -1 || ret != 127) {
@@ -122,12 +122,31 @@ void setPoint(string x, string y)
         exceptionHandler::cmdErrorException("set point failed");
     }
 }
-}
-int main(int argc, char** argv)
+void speech()
 {
+    string str = "gnome-terminal -x roslaunch xfyun_waterplus iat_en.launch";
+    int ret = system(str.data());
+    if (ret != -1 || ret != 127) {
+        cout << "speak!" << endl;
+    } else {
+        exceptionHandler::cmdErrorException("speech failed");
+    }
+    
+}
+
+
+void KeywordCB(const std_msgs::String::ConstPtr & msg)
+{
+    ROS_WARN("[KeywordCB] - %s",msg->data.c_str());
+    s = msg->data.c_str();
+    ros::shutdown();
+}
+}
+int main(int argc,char** argv)
+{
+    puts("robot started!\nplease type in and instruction:");
     while (1) {
-        puts("robot started!\nplease type in and instruction:");
-        puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 导航\n6: 设定地点\n7: 语音控制");
+        puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 导航\n6: 设定地点");
 
         int input;
         scanf("%d", &input);
@@ -152,7 +171,6 @@ int main(int argc, char** argv)
         } else if (input == 5) {
             controller::navigation();
         } else if (input == 6) {
-
             puts("1: 键入目标地图坐标   2: 键入目标名字    3: 启用语音输入目标名字\n");
             //目标点表
             scanf("%d",&input);
@@ -205,9 +223,7 @@ int main(int argc, char** argv)
                 
             }
             
-        } else if (input == 7) {
-	    
-	    } else {
+        } else {
             puts("there's no other cmds except 1~6!");
         }
     }
