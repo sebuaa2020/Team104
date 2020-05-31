@@ -3,7 +3,15 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 #include <std_msgs/String.h>
-
+#include <move_base_msgs/MoveBaseAction.h>
+#include <actionlib/client/simple_action_client.h>
+#include <tf/transform_listener.h>
+#include <visualization_msgs/Marker.h>
+#include <waterplus_map_tools/Waypoint.h>
+#include <waterplus_map_tools/GetNumOfWaypoints.h>
+#include <waterplus_map_tools/GetWaypointByIndex.h>
+#include <waterplus_map_tools/GetWaypointByName.h>
+#include <string>
 using namespace std;
 namespace STATE {
 bool state[5] = { 0 };
@@ -13,7 +21,13 @@ const int _gmapping = 2;
 const int _keyboard = 3;
 }
 namespace controller {
-
+class waypoint {
+public:
+    string name;
+    float x;
+    float y;
+};
+waypoint waypointArray[10];
 string s, t;
 bool getstate(string s)
 {
@@ -63,7 +77,7 @@ void gmapping()
         setstate("gmapping", 1);
 	ret = system("gnome-terminal -x roslaunch wpb_home_tutorials hector_mapping.launch");
 	if (ret != -1 || ret != 127) {
-            cout << "slam_start,please use keyboard to controll" << endl;
+            cout << "slam_start,please uwaypointArray[10];se keyboard to controll" << endl;
 	} 
     } else {
         exceptionHandler::cmdErrorException("start gmapping failed");
@@ -80,7 +94,6 @@ void saveMap()
         exceptionHandler::cmdErrorException("map saved failed");
     }
 }
-
 void keyboardControll()
 {
     int ret = system("gnome-terminal -x rosrun team_104 keyboard");
@@ -110,12 +123,11 @@ void setPoint(string x, string y)
     }
 }
 }
-int main()
+int main(int argc, char** argv)
 {
     while (1) {
         puts("robot started!\nplease type in and instruction:");
-
-        puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 导航\n6: 设定地点\n7:语音控制");
+        puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 导航\n6: 设定地点\n7: 语音控制");
 
         int input;
         scanf("%d", &input);
@@ -149,23 +161,53 @@ int main()
                 cin >> controller::s;
                 cin >> controller::t;
                 controller::setPoint(controller::s, controller::t);
-            }else if(input == 2){
+            } else if(input == 2){
+                ros::init(argc, argv, "controller");
+                ros::NodeHandle nh;
+                ros::ServiceClient cliGetNum = nh.serviceClient<waterplus_map_tools::GetNumOfWaypoints>("/waterplus/get_num_waypoint");
+                ros::ServiceClient cliGetWPIndex = nh.serviceClient<waterplus_map_tools::GetWaypointByIndex>("/waterplus/get_waypoint_index");
+                ros::ServiceClient cliGetWPName = nh.serviceClient<waterplus_map_tools::GetWaypointByName>("/waterplus/get_waypoint_name");
+                waterplus_map_tools::GetNumOfWaypoints srvNum;
+                waterplus_map_tools::GetWaypointByIndex srvI;
+                int waypointNum = 0;
+                if (cliGetNum.call(srvNum)) {
+                    ROS_INFO("Num_wp = %d", (int)srvNum.response.num);
+                }
+                else {
+                    ROS_ERROR("Failed to call service get_num_waypoints");
+                }
+                for(int i=0;i<srvNum.response.num;i++) {
+                    srvI.request.index = i;
+                    if (cliGetWPIndex.call(srvI)) {
+                        std::string name = srvI.response.name;
+                        float x = srvI.response.pose.position.x;
+                        float y = srvI.response.pose.position.y;
+                        controller::waypointArray[i].name = name;
+                        controller::waypointArray[i].x = x;
+                        controller::waypointArray[i].x = y;
+                        waypointNum++;
+                    } else {
+                        puts("Failed to call service get_wp_index");
+                    }
+                }
+                cout << waypointNum <<endl;
+                for (int i = 0;i < waypointNum;i++) {
+                    cout<<i<<endl;
+                    cout << "    name:" << controller::waypointArray[i].name <<  endl;
+                    cout << "    x:" << controller::waypointArray[i].x <<  endl;
+                    cout << "    y:" << controller::waypointArray[i].y <<  endl;
+
+                }
                 puts("type in the point you want to set!");
                 cin >> controller::s;
-                controller::setPoint(controller::s);
-            }else if(input == 3){
+                //controller::setPoint(controller::s);
+            } else if(input == 3){
                 
             }
             
-        } else {
-
-            puts("type in the point you want to set!");
-            cin >> controller::s;
-            cin >> controller::t;
-            controller::setPoint(controller::s, controller::t);
         } else if (input == 7) {
 	    
-	} else {
+	    } else {
             puts("there's no other cmds except 1~6!");
         }
     }

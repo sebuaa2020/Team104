@@ -15,7 +15,8 @@ find_package(catkin REQUIRED COMPONENTS
   cv_bridge image_transport tf 
   sensor_msgs geometry_msgs std_msgs visualization_msgs 
   image_geometry message_generation
-  move_base_msgs actionlib 
+  move_base_msgs actionlib
+  waterplus_map_tools
 )
 
 ## System dependencies are found with CMake's conventions
