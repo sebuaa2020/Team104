@@ -3,6 +3,7 @@
 	source ./devel/setup.bash
 	roslaunch robot_sim_demo robot_spawn.launch
 	roslaunch xfyun_waterplus iat_en.launch
+	rosrun team_104 speech
 
 		测试项目               结果期望
 	1、语音输入 "Forward"		正常	
