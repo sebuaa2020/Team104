@@ -100,8 +100,9 @@ void navigation()
     }
 }
 void setPoint(string x, string y)
-{
+{   
     string str = "gnome-terminal -x rosrun team_104 navigate " + x + " " + y;
+    cout<< str <<endl;
     int ret = system(str.data());
     if (ret != -1 || ret != 127) {
         cout << "point set, start move!" << endl;
@@ -109,13 +110,30 @@ void setPoint(string x, string y)
         exceptionHandler::cmdErrorException("set point failed");
     }
 }
-}
-int main()
+void speech()
 {
-    while (1) {
-        puts("robot started!\nplease type in and instruction:");
+    string str = "gnome-terminal -x roslaunch xfyun_waterplus iat_en.launch";
+    int ret = system(str.data());
+    if (ret != -1 || ret != 127) {
+        cout << "speak!" << endl;
+    } else {
+        exceptionHandler::cmdErrorException("speech failed");
+    }
+    
+}
 
-        puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 导航\n6: 设定地点\n7:语音控制");
+void KeywordCB(const std_msgs::String::ConstPtr & msg)
+{
+    ROS_WARN("[KeywordCB] - %s",msg->data.c_str());
+    s = msg->data.c_str();
+}
+
+}
+int main(int argc,char** argv)
+{
+    puts("robot started!\nplease type in and instruction:");
+    while (1) {
+        puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 导航\n6: 设定地点");
 
         int input;
         scanf("%d", &input);
@@ -140,7 +158,6 @@ int main()
         } else if (input == 5) {
             controller::navigation();
         } else if (input == 6) {
-
             puts("1: 键入目标地图坐标   2: 键入目标名字    3: 启用语音输入目标名字\n");
             //目标点表
             scanf("%d",&input);
@@ -150,22 +167,21 @@ int main()
                 cin >> controller::t;
                 controller::setPoint(controller::s, controller::t);
             }else if(input == 2){
-                puts("type in the point you want to set!");
+                puts("type in the name of point you want to set!");
                 cin >> controller::s;
-                controller::setPoint(controller::s);
+                controller::setPoint(controller::s,"");
             }else if(input == 3){
-                
+                puts("speak the name of target point in 10s\n");
+                ros::init(argc, argv, "wpb_home_voice_cmd");
+                ros::NodeHandle nh;
+                controller::speech();
+                ros::Subscriber sub_sr = nh.subscribe("/xfyun/iat", 10, controller::KeywordCB);
+                ros::spin();
+                cout<<controller::s<<endl;
+                //controller::setPoint(controller::s,""); 
             }
             
-        } else {
-
-            puts("type in the point you want to set!");
-            cin >> controller::s;
-            cin >> controller::t;
-            controller::setPoint(controller::s, controller::t);
-        } else if (input == 7) {
-	    
-	} else {
+        }else {
             puts("there's no other cmds except 1~6!");
         }
     }

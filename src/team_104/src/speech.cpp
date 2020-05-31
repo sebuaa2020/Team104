@@ -102,11 +102,12 @@ int main(int argc, char** argv)
     ros::init(argc, argv, "wpb_home_voice_cmd");
 
     ros::NodeHandle n;
+  
     vel_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
 
     ros::Subscriber sub_sr = n.subscribe("/xfyun/iat", 10, KeywordCB);
     
-    ros::spinOnce();
+    ros::spin();
 
     return 0;
 }
