@@ -3,6 +3,10 @@
 #include <iostream>
 #include <move_base_msgs/MoveBaseAction.h>
 #include <actionlib/client/simple_action_client.h>
+#include <waterplus_map_tools/Waypoint.h>
+#include <waterplus_map_tools/GetNumOfWaypoints.h>
+#include <waterplus_map_tools/GetWaypointByIndex.h>
+#include <waterplus_map_tools/GetWaypointByName.h>
 /*move_base_msgs::MoveBaseAction
  move_base在world中的目标
 */ 
@@ -26,6 +30,7 @@ int main(int argc, char** argv) {
     double x,y;
 
     if (argc == 2){
+        ros::NodeHandle nh;
         ros::ServiceClient cliGetNum = nh.serviceClient<waterplus_map_tools::GetNumOfWaypoints>("/waterplus/get_num_waypoint");
         ros::ServiceClient cliGetWPIndex = nh.serviceClient<waterplus_map_tools::GetWaypointByIndex>("/waterplus/get_waypoint_index");
         ros::ServiceClient cliGetWPName = nh.serviceClient<waterplus_map_tools::GetWaypointByName>("/waterplus/get_waypoint_name");
@@ -37,7 +42,8 @@ int main(int argc, char** argv) {
         else {
             ROS_ERROR("Failed to call service get_num_waypoints");
          }
-        for(int i=0;i<srvNum.response.num;i++) {
+        int i;
+        for(i=0;i<srvNum.response.num;i++) {
             srvI.request.index = i;
             if (cliGetWPIndex.call(srvI)) {
                 std::string name = srvI.response.name;
@@ -49,6 +55,10 @@ int main(int argc, char** argv) {
             } else {
                 puts("Failed to call service get_wp_index");
             }
+        }
+        if (i == srvNum.response.num) {
+            cout << "Failed to get the waypoint \"" << argv[1] << "\"" << endl;
+            return 0;
         }
         puts("type in the point you want to set!");
         
