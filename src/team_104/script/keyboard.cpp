@@ -42,7 +42,7 @@ int main()
     newt = oldt;
     newt.c_lflag &= ~(ICANON);          
     tcsetattr( STDIN_FILENO, TCSANOW, &newt);
-    system("stty -echo");
+    //system("stty -echo");
 
 
     puts("\tu\ti\to\n\n\tj\tk\tl\n");
@@ -97,7 +97,7 @@ int main()
         }
     }
     system("rosrun team_104 move stop 0");
-    system("stty echo");
+    //system("stty echo");
     tcsetattr( STDIN_FILENO, TCSANOW, &oldt);
     return 0;
 }
