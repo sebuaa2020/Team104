@@ -21,13 +21,13 @@ actionlib
 ## 目录需求
 
 ```shell
-$HOME/team108_ws/src
+$HOME/team104_ws/src
 ```
 
 ## 编译
 
 ```shell
-cd team108_ws/
+cd team104_ws/
 catkin_make
 ```
 
