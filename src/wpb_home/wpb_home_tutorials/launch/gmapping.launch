@@ -13,11 +13,6 @@
     <param name="base_frame" value="base_footprint"/>
   </node>
 
-  <!-- Run wpb_home core -->
-  <node pkg="wpb_home_bringup" type="wpb_home_core" name="wpb_home_core" output="screen">
-    <param name="serial_port" type="string" value="/dev/ftdi"/> 
-    <rosparam file="$(find wpb_home_bringup)/config/wpb_home.yaml" command="load" />
-  </node>
 
   <!--- Run Rplidar -->
   <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
