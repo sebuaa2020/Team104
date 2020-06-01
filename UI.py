@@ -76,7 +76,7 @@ keyboard_p = None
 def keyboard():
     global _keyboard, keyboard_p
     if _keyboard:
-        keyboard_p.stdin.write(b'q')
+        keyboard_p.kill()
         keyboard_p.stdin.flush()
         _keyboard = False
         keyboard_m.set("keyboard  : off")
