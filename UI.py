@@ -181,8 +181,8 @@ buttons.append([navigation, 600, 330])
 
 
 def navigation_1():
-    #navigation_p.stdin.write(b"1\n")
-    #navigation_p.stdin.flush()
+    navigation_p.stdin.write(b"1\n")
+    navigation_p.stdin.flush()
     message.set("please input the coordinate of target")
     navigation_1.place_forget()
     navigation_2.place_forget()
@@ -217,8 +217,8 @@ navigation_1_start = tk.Button(top, text="start", font=("consolas", 14), command
 
 
 def navigation_2():
-    # navigation_p.stdin.write(b"2\n")
-    # navigation_p.stdin.flush()
+    navigation_p.stdin.write(b"2\n")
+    navigation_p.stdin.flush()
     message.set("please input the number of target")
     navigation_1.place_forget()
     navigation_2.place_forget()
@@ -248,8 +248,8 @@ navigation_2_start = tk.Button(top, text="start", font=("consolas", 14), command
 
 
 def navigation_3():
-    # navigation_p.stdin.write(b"3\n")
-    # navigation_p.stdin.flush()
+    navigation_p.stdin.write(b"3\n")
+    navigation_p.stdin.flush()
     message.set("please tell me the number of target")
     navigation_1.place_forget()
     navigation_2.place_forget()
