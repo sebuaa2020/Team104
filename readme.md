@@ -21,20 +21,20 @@ actionlib
 ## 目录需求
 
 ```shell
-$HOME/team108_ws/src
+$HOME/team104_ws/src
 ```
 
 ## 编译
 
 ```shell
-cd team108_ws/
+cd team104_ws/
 catkin_make
 ```
 
 ## 运行
 
 ```shell
-rosrun team_104 controller
+python3 UI.py
 ```
 
 

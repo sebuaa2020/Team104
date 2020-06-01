@@ -3,6 +3,10 @@
 #include <iostream>
 #include <move_base_msgs/MoveBaseAction.h>
 #include <actionlib/client/simple_action_client.h>
+#include <waterplus_map_tools/Waypoint.h>
+#include <waterplus_map_tools/GetNumOfWaypoints.h>
+#include <waterplus_map_tools/GetWaypointByIndex.h>
+#include <waterplus_map_tools/GetWaypointByName.h>
 /*move_base_msgs::MoveBaseAction
  move_base在world中的目标
 */ 
@@ -26,26 +30,53 @@ int main(int argc, char** argv) {
     double x,y;
 
     if (argc == 2){
-        cout<<"okokokokkokook"<<endl;
+        ros::NodeHandle nh;
+        ros::ServiceClient cliGetNum = nh.serviceClient<waterplus_map_tools::GetNumOfWaypoints>("/waterplus/get_num_waypoint");
+        ros::ServiceClient cliGetWPIndex = nh.serviceClient<waterplus_map_tools::GetWaypointByIndex>("/waterplus/get_waypoint_index");
+        ros::ServiceClient cliGetWPName = nh.serviceClient<waterplus_map_tools::GetWaypointByName>("/waterplus/get_waypoint_name");
+        waterplus_map_tools::GetNumOfWaypoints srvNum;
+        waterplus_map_tools::GetWaypointByIndex srvI;
+        if (cliGetNum.call(srvNum)) {
+            ROS_INFO("Num_wp = %d", (int)srvNum.response.num);
+        }
+        else {
+            ROS_ERROR("Failed to call service get_num_waypoints");
+         }
+        for(int i=0;i<srvNum.response.num;i++) {
+            srvI.request.index = i;
+            if (cliGetWPIndex.call(srvI)) {
+                std::string name = srvI.response.name;
+                if(name == argv[1]){
+                    x = srvI.response.pose.position.x;
+                    y = srvI.response.pose.position.y;
+                    break;
+                }
+            } else {
+                puts("Failed to call service get_wp_index");
+            }
+        }
+        puts("type in the point you want to set!");
+        
     }else if(argc == 3){
         x = strtod(argv[1],NULL);
-        y = strtod(argv[2],NULL);
-        goal.target_pose.pose.position.x = x;
-        goal.target_pose.pose.position.y = y;
-        goal.target_pose.pose.orientation.w = 1;
-        ROS_INFO("Sending goal");
-        ac.sendGoal(goal);
-        // Wait for the action to return
-        ac.waitForResult();
-        if (ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-        {   ROS_INFO("You have reached the goal!");
-            return 0;
-        }
-        else
-        ROS_INFO("The base failed for some reason");
-        return 0;
-    } else{
+        y = strtod(argv[2],NULL);  
+    }
+    else{
         cout<<"too many argc!!!!!"<<endl;
     }
-        
+
+    goal.target_pose.pose.position.x = x;
+    goal.target_pose.pose.position.y = y;
+    goal.target_pose.pose.orientation.w = 1;
+    ROS_INFO("Sending goal");
+    ac.sendGoal(goal);
+    // Wait for the action to return
+    ac.waitForResult();
+    if (ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+    {   ROS_INFO("You have reached the goal!");
+        return 0;
+    }
+    else
+    ROS_INFO("The base failed for some reason");
+    return 0;    
 }
