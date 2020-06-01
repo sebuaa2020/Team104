@@ -64,6 +64,9 @@ def gmapping():
 
 def savemap():
     global _gmapping
+    if not _gmapping:
+        message.set("please start gmapping first!")
+        return
     sp.Popen("rosrun map_server map_saver -f  ./src/team_104/maps/map", shell=True)
     message.set("map saved")
     _gmapping = False
@@ -162,11 +165,12 @@ navigation_p = None
 
 def navigation():
     global _navigation, navigation_p
-    navigation_p = sp.Popen("rosrun team_104 controller", shell=True, stdin=sp.PIPE)
+    if not _navigation:
+        navigation_p = sp.Popen("rosrun team_104 controller", shell=True, stdin=sp.PIPE, stdout=sp.PIPE)
+        sp.Popen("rosrun team_104 setPosition", shell=True)
+    navigation_p.stdout.readlines()
     navigation_p.stdin.write(b"6\n")
     navigation_p.stdin.flush()
-    if not _navigation:
-        sp.Popen("rosrun team_104 setPosition", shell=True)
     message.set("navigation controller started!\n please click buttons to choose the functions.")
     _navigation = True
     navigation_m.set("navigation: on")
@@ -216,10 +220,19 @@ def navigation_1_start():
 navigation_1_start = tk.Button(top, text="start", font=("consolas", 14), command=navigation_1_start)
 
 
+def get_navi():
+    ss = navigation_p.stdout.readlines()
+    ret = b""
+    for x in ss:
+        ret = ret + x.encode() + b"\n"
+    message.set(ret)
+
+
 def navigation_2():
     navigation_p.stdin.write(b"2\n")
     navigation_p.stdin.flush()
     message.set("please input the number of target")
+    get_navi()
     navigation_1.place_forget()
     navigation_2.place_forget()
     navigation_3.place_forget()
@@ -251,6 +264,7 @@ def navigation_3():
     navigation_p.stdin.write(b"3\n")
     navigation_p.stdin.flush()
     message.set("please tell me the number of target")
+    get_navi()
     navigation_1.place_forget()
     navigation_2.place_forget()
     navigation_3.place_forget()
