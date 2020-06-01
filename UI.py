@@ -46,7 +46,7 @@ def start():
         _started = False
         gazebo_m.set("gazebo    : off")
         return
-    # sp.Popen("roslaunch robot_sim_demo robot_spawn.launch", shell=True)
+    sp.Popen("roslaunch robot_sim_demo robot_spawn.launch", shell=True)
     message.set("gazebo starting!\nplease wait {} seconds".format(10))
     # message.set("gazebo started.")
     gazebo_m.set("gazebo    : on")
@@ -55,16 +55,16 @@ def start():
 
 def gmapping():
     global _gmapping
-    # sp.Popen("roslaunch wpb_home_tutorials gmapping.launch", shell=True)
+    sp.Popen("roslaunch wpb_home_tutorials gmapping.launch", shell=True)
     message.set("gmapping starting!\nplease wait {} seconds".format(5))
-    # sp.Popen("roslaunch wpb_home_tutorials hector_mapping.launch", shell=True)
+    sp.Popen("roslaunch wpb_home_tutorials hector_mapping.launch", shell=True)
     _gmapping = True
     gmapping_m.set("gmapping  : on")
 
 
 def savemap():
     global _gmapping
-    # sp.Popen("rosrun map_server map_saver -f  ./src/team_104/maps/map", shell=True)
+    sp.Popen("rosrun map_server map_saver -f  ./src/team_104/maps/map", shell=True)
     message.set("map saved")
     _gmapping = False
     gmapping_m.set("gmapping  : off")
@@ -80,7 +80,7 @@ def keyboard():
         _keyboard = False
         keyboard_m.set("keyboard  : off")
         return
-    # keyboard_p = sp.Popen("rosrun team_104 keyboard", shell=True, stdin=sp.PIPE)
+    keyboard_p = sp.Popen("rosrun team_104 keyboard", shell=True, stdin=sp.PIPE)
     message.set("keyboard controller started!\n please click buttons to controll the robot.")
     _keyboard = True
     keyboard_m.set("keyboard  : on")
