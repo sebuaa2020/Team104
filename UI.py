@@ -162,8 +162,9 @@ navigation_p = None
 
 def navigation():
     global _navigation, navigation_p
+    navigation_p = sp.Popen("rosrun team_104 controller", shell=True, stdin=sp.PIPE)
     if not _navigation:
-        navigation_p = sp.Popen("rosrun team_104 controller", shell=True, stdin=sp.PIPE)
+        sp.Popen("rosrun team_104 setPosition", shell=True)
     navigation_p.stdin.write(b"6\n")
     navigation_p.stdin.flush()
     message.set("navigation controller started!\n please click buttons to choose the functions.")
@@ -186,15 +187,15 @@ def navigation_1():
     navigation_1.place_forget()
     _navigation_x.place(x=600, y=330)
     _navigation_y.place(x=750, y=330)
-    navigation_x.place(x=610, y=330)
-    navigation_y.place(x=760, y=330)
+    navigation_x.place(x=630, y=330)
+    navigation_y.place(x=780, y=330)
     navigation_1_start.place(x=900, y=325)
 
 
 navigation_1 = tk.Button(top, text="input", font=("consolas", 14), command=navigation_1)
-navigation_x = tk.Entry(top, show=None, font=("consolas", 14))
+navigation_x = tk.Entry(top, show=None, font=("consolas", 14), width=50)
 _navigation_x = tk.Label(top, text='x:', font=('consolas', 14))
-navigation_y = tk.Entry(top, show=None, font=("consolas", 14))
+navigation_y = tk.Entry(top, show=None, font=("consolas", 14), width=50)
 _navigation_y = tk.Label(top, text='y:', font=('consolas', 14))
 
 
@@ -211,6 +212,34 @@ def navigation_1_start():
 
 
 navigation_1_start = tk.Button(top, text="start", font=("consolas", 14), command=navigation_1_start)
+
+
+def navigation_2():
+    navigation_p.stdin.write(b"2\n")
+    navigation_p.stdin.flush()
+    message.set("please input the coordinate of target")
+    navigation_2.place_forget()
+    _navigation_num.place(x=600, y=330)
+    navigation_num.place(x=650, y=330)
+    navigation_2_start.place(x=900, y=325)
+
+
+navigation_2 = tk.Button(top, text="choice", font=("consolas", 14), command=navigation_2)
+
+navigation_num = tk.Entry(top, show=None, font=("consolas", 14))
+_navigation_num = tk.Label(top, text='number:', font=('consolas', 14))
+
+
+def navigation_2_start():
+    xy = navigation_num.get().encode() + b"\n"
+    navigation_p.stdin.write(xy)
+    navigation_p.stdin.flush()
+    navigation_num.place_forget()
+    _navigation_num.place_forget()
+    navigation_2_start.place_forget()
+    navigation.place(x=600, y=330)
+
+navigation_2_start = tk.Button(top, text="start", font=("consolas", 14), command=navigation_2_start)
 
 
 def login():
