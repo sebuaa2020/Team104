@@ -77,7 +77,6 @@ def keyboard():
     global _keyboard, keyboard_p
     if _keyboard:
         keyboard_p.kill()
-        keyboard_p.stdin.flush()
         _keyboard = False
         keyboard_m.set("keyboard  : off")
         return
@@ -145,18 +144,73 @@ buttons.append([gazebo_start, 230, 600])
 keyboard_start = tk.Button(top, text="keyboard on/off", font=("consolas", 14), command=keyboard)
 buttons.append([keyboard_start, 600, 130])
 forward = tk.Button(top, text="前", font=("consolas", 14), command=forward)
-#buttons.append([forward, 870, 70])
+# buttons.append([forward, 870, 70])
 backward = tk.Button(top, text="后", font=("consolas", 14), command=backward)
-#buttons.append([backward, 870, 130])
+# buttons.append([backward, 870, 130])
 left = tk.Button(top, text="左", font=("consolas", 14), command=left)
-#buttons.append([left, 800, 130])
+# buttons.append([left, 800, 130])
 right = tk.Button(top, text="右", font=("consolas", 14), command=right)
-#buttons.append([right, 940, 130])
+# buttons.append([right, 940, 130])
 
 gmapping = tk.Button(top, text="gmapping", font=("consolas", 14), command=gmapping)
 buttons.append([gmapping, 600, 230])
 savemap = tk.Button(top, text="save map", font=("consolas", 14), command=savemap)
 buttons.append([savemap, 870, 230])
+
+navigation_p = None
+
+
+def navigation():
+    global _navigation, navigation_p
+    if not _navigation:
+        navigation_p = sp.Popen("rosrun team_104 controller", shell=True, stdin=sp.PIPE)
+    navigation_p.stdin.write(b"6\n")
+    navigation_p.stdin.flush()
+    message.set("navigation controller started!\n please click buttons to choose the functions.")
+    _navigation = True
+    navigation_m.set("navigation: on")
+    navigation.place_forget()
+    navigation_1.place(x=600, y=330)
+    navigation_2.place(x=750, y=330)
+    navigation_3.place(x=900, y=330)
+
+
+navigation = tk.Button(top, text="navigation", font=("consolas", 14), command=navigation)
+buttons.append([navigation, 600, 330])
+
+
+def navigation_1():
+    navigation_p.stdin.write(b"1\n")
+    navigation_p.stdin.flush()
+    message.set("please input the coordinate of target")
+    navigation_1.place_forget()
+    _navigation_x.place(x=600, y=330)
+    _navigation_y.place(x=750, y=330)
+    navigation_x.place(x=610, y=330)
+    navigation_y.place(x=760, y=330)
+    navigation_1_start.place(x=900, y=325)
+
+
+navigation_1 = tk.Button(top, text="input", font=("consolas", 14), command=navigation_1)
+navigation_x = tk.Entry(top, show=None, font=("consolas", 14))
+_navigation_x = tk.Label(top, text='x:', font=('consolas', 14))
+navigation_y = tk.Entry(top, show=None, font=("consolas", 14))
+_navigation_y = tk.Label(top, text='y:', font=('consolas', 14))
+
+
+def navigation_1_start():
+    xy = navigation_x.get().encode() + b"\n" + navigation_y.get() + b"\n"
+    navigation_p.stdin.write(xy)
+    navigation_p.stdin.flush()
+    navigation_x.place_forget()
+    navigation_y.place_forget()
+    _navigation_x.place_forget()
+    _navigation_y.place_forget()
+    navigation_1_start.place_forget()
+    navigation.place(x=600, y=330)
+
+
+navigation_1_start = tk.Button(top, text="start", font=("consolas", 14), command=navigation_1_start)
 
 
 def login():

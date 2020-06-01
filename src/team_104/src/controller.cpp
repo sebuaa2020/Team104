@@ -145,9 +145,9 @@ void KeywordCB(const std_msgs::String::ConstPtr & msg)
 }
 int main(int argc,char** argv)
 {
-    puts("robot started!\nplease type in and instruction:");
+    //puts("robot started!\nplease type in and instruction:");
     while (1) {
-        puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 导航\n6: 设定地点");
+        //puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 导航\n6: 设定地点");
         int input;
         scanf("%d", &input);
         if (input == 1) {
@@ -174,10 +174,10 @@ int main(int argc,char** argv)
             if (!controller::initPosFlag) {
                 string str = "gnome-terminal -x roslaunch waterplus_map_tools wpb_home_nav_test.launch";
                 system(str.data());
-                system("gnome-terminal -x rosrun team_104 setPosition");
+                system("rosrun team_104 setPosition");
                 controller::initPosFlag = true;
             }
-            puts("1: 键入目标地图坐标   2: 键入目标名字    3: 启用语音输入目标名字\n");
+            //puts("1: 键入目标地图坐标   2: 键入目标名字    3: 启用语音输入目标名字\n");
             //目标点表
             scanf("%d",&input);
             if(input != 1){              
@@ -206,7 +206,7 @@ int main(int argc,char** argv)
                         controller::waypointArray[i].y = y;
                         waypointNum++;
                     } else {
-                        puts("Failed to call service get_wp_index");
+                        //puts("Failed to call service get_wp_index");
                     }
                 }
                 cout << waypointNum <<endl;
@@ -217,10 +217,10 @@ int main(int argc,char** argv)
                     cout << "    y:" << controller::waypointArray[i].y <<  endl;
 
                 }
-                puts("type in the point you want to set!");
+                //puts("type in the point you want to set!");
             }
             if(input == 1){
-                puts("type in the point you want to set!");
+                //puts("type in the point you want to set!");
                 cin >> controller::s;
                 cin >> controller::t;
                 controller::setPoint(controller::s, controller::t);
@@ -228,7 +228,7 @@ int main(int argc,char** argv)
                 cin >> controller::s;
                 controller::setPoint(controller::s,"");
             } else if(input == 3){
-                puts("speak the name of target point in 10s\n");
+                //puts("speak the name of target point in 10s\n");
                 ros::init(argc, argv, "wpb_home_voice_cmd");
                 ros::NodeHandle nh;
                 controller::speech();
