@@ -281,3 +281,12 @@ add_dependencies(move_test ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED
 target_link_libraries(move_test
   ${catkin_LIBRARIES}
 )
+
+
+add_executable(setPosition
+  src/setPosition.cpp
+)
+add_dependencies(setPosition ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(setPosition
+  ${catkin_LIBRARIES}
+)

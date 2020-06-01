@@ -173,6 +173,7 @@ int main(int argc,char** argv)
         } else if (input == 6) {
             string str = "gnome-terminal -x roslaunch waterplus_map_tools wpb_home_nav_test.launch";
             system(str.data());
+            system("gnome-terminal -x rosrun team_104 setPosition");
             puts("1: 键入目标地图坐标   2: 键入目标名字    3: 启用语音输入目标名字\n");
             //目标点表
             scanf("%d",&input);
