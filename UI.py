@@ -77,6 +77,7 @@ def keyboard():
     global _keyboard, keyboard_p
     if _keyboard:
         keyboard_p.stdin.write(b'q')
+        keyboard_p.stdin.flush()
         _keyboard = False
         keyboard_m.set("keyboard  : off")
         return
@@ -110,6 +111,7 @@ def forward():
         message.set("please first start the keyboard controller!")
         return
     keyboard_p.stdin.write(b"i")
+    keyboard_p.stdin.flush()
 
 
 def backward():
@@ -117,6 +119,7 @@ def backward():
         message.set("please first start the keyboard controller!")
         return
     keyboard_p.stdin.write(b"k")
+    keyboard_p.stdin.flush()
 
 
 def left():
@@ -124,6 +127,7 @@ def left():
         message.set("please first start the keyboard controller!")
         return
     keyboard_p.stdin.write(b"u")
+    keyboard_p.stdin.flush()
 
 
 def right():
@@ -131,6 +135,7 @@ def right():
         message.set("please first start the keyboard controller!")
         return
     keyboard_p.stdin.write(b"o")
+    keyboard_p.stdin.flush()
 
 
 buttons = []
