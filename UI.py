@@ -218,6 +218,7 @@ navigation_1_start = tk.Button(top, text="start", font=("consolas", 14), command
 
 
 def get_navi():
+    navigation_p.stdout.flush()
     ss = navigation_p.stdout.readlines()
     ret = b""
     for x in ss:
