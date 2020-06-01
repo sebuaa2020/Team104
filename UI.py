@@ -89,10 +89,6 @@ def keyboard():
     keyboard_m.set("keyboard  : on")
 
 
-def navigation():
-    pass
-
-
 user = {}
 if os.path.exists('users.pkl'):
     with open('users.pkl', 'rb') as f:
@@ -167,10 +163,11 @@ def navigation():
     global _navigation, navigation_p
     if not _navigation:
         navigation_p = sp.Popen("rosrun team_104 controller", shell=True, stdin=sp.PIPE, stdout=sp.PIPE)
-        sp.Popen("rosrun team_104 setPosition", shell=True)
     navigation_p.stdout.readlines()
     navigation_p.stdin.write(b"6\n")
     navigation_p.stdin.flush()
+    if not _navigation:
+        sp.Popen("rosrun team_104 setPosition", shell=True)
     message.set("navigation controller started!\n please click buttons to choose the functions.")
     _navigation = True
     navigation_m.set("navigation: on")
