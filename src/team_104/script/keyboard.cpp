@@ -42,7 +42,7 @@ int main()
     newt = oldt;
     newt.c_lflag &= ~(ICANON);          
     tcsetattr( STDIN_FILENO, TCSANOW, &newt);
-    //system("stty -echo");
+    system("stty -echo");
 
 
     puts("\tu\ti\to\n\n\tj\tk\tl\n");
@@ -54,13 +54,13 @@ int main()
         while(1)
         {
             if(kbhit())break;
-            if(clock()/1000.-last>0.7)
+            if(clock()/1000.-last>0.3)
             {
                 system("rosrun team_104 move stop 0");
             }
         }
         ch = getchar();
-        if(clock()/1000.-last<0.2)continue;
+        if(clock()/1000.-last<0.29)continue;
         //cerr<<clock()/1000.-last<<"\n";
         last=clock()/1000.;
         if(ch=='q')break;
@@ -97,7 +97,7 @@ int main()
         }
     }
     system("rosrun team_104 move stop 0");
-    //system("stty echo");
+    system("stty echo");
     tcsetattr( STDIN_FILENO, TCSANOW, &oldt);
     return 0;
 }

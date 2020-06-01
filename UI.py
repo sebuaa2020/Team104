@@ -81,7 +81,7 @@ def keyboard():
         _keyboard = False
         keyboard_m.set("keyboard  : off")
         return
-    keyboard_p = sp.Popen("rosrun team_104 keyboard", shell=True, stdin=sp.PIPE)
+    keyboard_p = sp.Popen("gnome-terminal -x rosrun team_104 keyboard", shell=True, stdin=sp.PIPE)
     message.set("keyboard controller started!\n please click buttons to controll the robot.")
     _keyboard = True
     keyboard_m.set("keyboard  : on")
@@ -145,13 +145,13 @@ buttons.append([gazebo_start, 230, 600])
 keyboard_start = tk.Button(top, text="keyboard on/off", font=("consolas", 14), command=keyboard)
 buttons.append([keyboard_start, 600, 130])
 forward = tk.Button(top, text="前", font=("consolas", 14), command=forward)
-buttons.append([forward, 870, 70])
+#buttons.append([forward, 870, 70])
 backward = tk.Button(top, text="后", font=("consolas", 14), command=backward)
-buttons.append([backward, 870, 130])
+#buttons.append([backward, 870, 130])
 left = tk.Button(top, text="左", font=("consolas", 14), command=left)
-buttons.append([left, 800, 130])
+#buttons.append([left, 800, 130])
 right = tk.Button(top, text="右", font=("consolas", 14), command=right)
-buttons.append([right, 940, 130])
+#buttons.append([right, 940, 130])
 
 gmapping = tk.Button(top, text="gmapping", font=("consolas", 14), command=gmapping)
 buttons.append([gmapping, 600, 230])
