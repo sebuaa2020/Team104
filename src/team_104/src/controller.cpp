@@ -28,6 +28,7 @@ public:
     float y;
 };
 waypoint waypointArray[10];
+bool initPosFlag = false;
 string s, t;
 bool getstate(string s)
 {
@@ -147,7 +148,6 @@ int main(int argc,char** argv)
     puts("robot started!\nplease type in and instruction:");
     while (1) {
         puts("1: 启动\n2: 开始建图\n3: 保存地图\n4: 手动控制移动\n5: 导航\n6: 设定地点");
-
         int input;
         scanf("%d", &input);
         if (input == 1) {
@@ -171,9 +171,12 @@ int main(int argc,char** argv)
         } else if (input == 5) {
             controller::navigation();
         } else if (input == 6) {
-            string str = "gnome-terminal -x roslaunch waterplus_map_tools wpb_home_nav_test.launch";
-            system(str.data());
-            system("gnome-terminal -x rosrun team_104 setPosition");
+            if (!controller::initPosFlag) {
+                string str = "gnome-terminal -x roslaunch waterplus_map_tools wpb_home_nav_test.launch";
+                system(str.data());
+                system("gnome-terminal -x rosrun team_104 setPosition");
+                controller::initPosFlag = true;
+            }
             puts("1: 键入目标地图坐标   2: 键入目标名字    3: 启用语音输入目标名字\n");
             //目标点表
             scanf("%d",&input);
@@ -200,7 +203,7 @@ int main(int argc,char** argv)
                         float y = srvI.response.pose.position.y;
                         controller::waypointArray[i].name = name;
                         controller::waypointArray[i].x = x;
-                        controller::waypointArray[i].x = y;
+                        controller::waypointArray[i].y = y;
                         waypointNum++;
                     } else {
                         puts("Failed to call service get_wp_index");

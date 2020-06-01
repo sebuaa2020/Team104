@@ -11,14 +11,13 @@ int main(int argc, char **argv)
   ros::Publisher initial_pose_pub = nh.advertise<geometry_msgs::PoseWithCovarianceStamped>("initialpose", 10);
   ros::Rate loop_rate(1);
   //define 2d estimate pose
-  double alpha = PI/2;//radian value
+  double alpha = 0;//radian value
   double x_pos = 5;
   double y_pos = 0;
- 
-  while (ros::ok())
+  int cnt = 3;
+  while (ros::ok() && cnt--)
   {
     geometry_msgs::PoseWithCovarianceStamped pose_msg;
- 
     pose_msg.header.stamp = ros::Time::now();
     pose_msg.header.frame_id = "map";
     pose_msg.pose.pose.position.x = x_pos;
@@ -31,7 +30,7 @@ int main(int argc, char **argv)
  
     initial_pose_pub.publish(pose_msg);
     ROS_INFO("Setting to :(%f,%f)",x_pos,y_pos);
-    ros::spin();
+    ros::spinOnce();
  
     loop_rate.sleep();
   }

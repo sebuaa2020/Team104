@@ -42,7 +42,8 @@ int main(int argc, char** argv) {
         else {
             ROS_ERROR("Failed to call service get_num_waypoints");
          }
-        for(int i=0;i<srvNum.response.num;i++) {
+        int i;
+        for(i=0;i<srvNum.response.num;i++) {
             srvI.request.index = i;
             if (cliGetWPIndex.call(srvI)) {
                 std::string name = srvI.response.name;
@@ -54,6 +55,10 @@ int main(int argc, char** argv) {
             } else {
                 puts("Failed to call service get_wp_index");
             }
+        }
+        if (i == srvNum.response.num) {
+            cout << "Failed to get the waypoint \"" << argv[1] << "\"" << endl;
+            return 0;
         }
         puts("type in the point you want to set!");
         

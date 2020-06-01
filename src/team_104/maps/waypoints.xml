@@ -1,6 +1,6 @@
 <Waterplus>
     <Waypoint>
-        <Name>1</Name>
+        <Name>One</Name>
         <Pos_x>5.03789</Pos_x>
         <Pos_y>0.00131035</Pos_y>
         <Pos_z>0</Pos_z>
@@ -10,7 +10,7 @@
         <Ori_w>-0.468851</Ori_w>
     </Waypoint>
     <Waypoint>
-        <Name>2</Name>
+        <Name>Two</Name>
         <Pos_x>-1.95648</Pos_x>
         <Pos_y>7.04454</Pos_y>
         <Pos_z>0</Pos_z>
@@ -20,7 +20,7 @@
         <Ori_w>-0.425528</Ori_w>
     </Waypoint>
     <Waypoint>
-        <Name>3</Name>
+        <Name>Three</Name>
         <Pos_x>-0.275181</Pos_x>
         <Pos_y>0.488229</Pos_y>
         <Pos_z>0</Pos_z>
