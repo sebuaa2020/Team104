@@ -203,7 +203,7 @@ _navigation_y = tk.Label(top, text='y:', font=('consolas', 14))
 
 
 def navigation_1_start():
-    xy = navigation_x.get().encode() + b"\n" + navigation_y.get() + b"\n"
+    xy = navigation_x.get().encode() + b"\n" + navigation_y.get().encode() + b"\n"
     navigation_p.stdin.write(xy)
     navigation_p.stdin.flush()
     navigation_x.place_forget()
