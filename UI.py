@@ -109,28 +109,28 @@ def forward():
     if not _keyboard:
         message.set("please first start the keyboard controller!")
         return
-    keyboard_p.stdin.write("i")
+    keyboard_p.stdin.write(b"i")
 
 
 def backward():
     if not _keyboard:
         message.set("please first start the keyboard controller!")
         return
-    keyboard_p.stdin.write("k")
+    keyboard_p.stdin.write(b"k")
 
 
 def left():
     if not _keyboard:
         message.set("please first start the keyboard controller!")
         return
-    keyboard_p.stdin.write("u")
+    keyboard_p.stdin.write(b"u")
 
 
 def right():
     if not _keyboard:
         message.set("please first start the keyboard controller!")
         return
-    keyboard_p.stdin.write("o")
+    keyboard_p.stdin.write(b"o")
 
 
 buttons = []

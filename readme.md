@@ -33,6 +33,12 @@ catkin_make
 
 ## 运行
 
+python依赖：
+
+```
+tkinter
+```
+
 ```shell
 python3 UI.py
 ```
