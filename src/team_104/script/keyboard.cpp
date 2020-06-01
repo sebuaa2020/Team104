@@ -54,13 +54,13 @@ int main()
         while(1)
         {
             if(kbhit())break;
-            if(clock()/1000.-last>0.3)
+            if(clock()/1000.-last>0.7)
             {
                 system("rosrun team_104 move stop 0");
             }
         }
         ch = getchar();
-        if(clock()/1000.-last<0.29)continue;
+        if(clock()/1000.-last<0.2)continue;
         //cerr<<clock()/1000.-last<<"\n";
         last=clock()/1000.;
         if(ch=='q')break;
