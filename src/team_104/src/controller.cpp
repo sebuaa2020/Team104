@@ -176,13 +176,7 @@ int main(int argc,char** argv)
             puts("1: 键入目标地图坐标   2: 键入目标名字    3: 启用语音输入目标名字\n");
             //目标点表
             scanf("%d",&input);
-            if(input == 1){
-                puts("type in the point you want to set!");
-                cin >> controller::s;
-                cin >> controller::t;
-                controller::setPoint(controller::s, controller::t);
-            } else if(input == 2){
-                
+            if(input != 1){              
                 ros::init(argc, argv, "controller");
                 ros::NodeHandle nh;
                 ros::ServiceClient cliGetNum = nh.serviceClient<waterplus_map_tools::GetNumOfWaypoints>("/waterplus/get_num_waypoint");
@@ -220,6 +214,13 @@ int main(int argc,char** argv)
 
                 }
                 puts("type in the point you want to set!");
+            }
+            if(input == 1){
+                puts("type in the point you want to set!");
+                cin >> controller::s;
+                cin >> controller::t;
+                controller::setPoint(controller::s, controller::t);
+            } else if(input == 2){
                 cin >> controller::s;
                 //controller::setPoint(controller::s);
             } else if(input == 3){
