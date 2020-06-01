@@ -171,10 +171,12 @@ int main(int argc,char** argv)
         } else if (input == 5) {
             controller::navigation();
         } else if (input == 6) {
+            string str = "gnome-terminal -x roslaunch waterplus_map_tools wpb_home_nav_test.launch";
+            system(str.data());
             puts("1: 键入目标地图坐标   2: 键入目标名字    3: 启用语音输入目标名字\n");
             //目标点表
             scanf("%d",&input);
-            if(input != 1){
+            if(input != 1){              
                 ros::init(argc, argv, "controller");
                 ros::NodeHandle nh;
                 ros::ServiceClient cliGetNum = nh.serviceClient<waterplus_map_tools::GetNumOfWaypoints>("/waterplus/get_num_waypoint");

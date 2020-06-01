@@ -54,9 +54,9 @@ int main(int argc, char** argv) {
         
     }else if(argc == 3){
         x = strtod(argv[1],NULL);
-        y = strtod(argv[2],NULL);
-        
-    }else{
+        y = strtod(argv[2],NULL);  
+    }
+    else{
         cout<<"too many argc!!!!!"<<endl;
     }
 
