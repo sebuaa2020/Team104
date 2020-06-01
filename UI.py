@@ -218,12 +218,16 @@ navigation_1_start = tk.Button(top, text="start", font=("consolas", 14), command
 
 
 def get_navi():
-    navigation_p.stdout.flush()
-    ss = navigation_p.stdout.readlines()
-    ret = b""
-    for x in ss:
-        ret = ret + x.encode() + b"\n"
-    message.set(ret)
+    import xml.dom.minidom as dd
+    dom = dd.parse('./src/team_104/maps/waypoints.xml')
+    ddd = dom.getElementsByTagName("Waypoint")
+    ret = ""
+    for x in ddd:
+        ret += "name: " + x.getElementsByTagName("Name")[0].childNodes[0].data + "\n"
+        ret += "x: " + x.getElementsByTagName("Pos_x")[0].childNodes[0].data + "\n"
+        ret += "y: " + x.getElementsByTagName("Pos_y")[0].childNodes[0].data + "\n"
+        ret += "\n"
+    message.set(ret.encode())
 
 
 def navigation_2():
