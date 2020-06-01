@@ -222,7 +222,7 @@ int main(int argc,char** argv)
                 controller::setPoint(controller::s, controller::t);
             } else if(input == 2){
                 cin >> controller::s;
-                //controller::setPoint(controller::s);
+                controller::setPoint(controller::s,"");
             } else if(input == 3){
                 puts("speak the name of target point in 10s\n");
                 ros::init(argc, argv, "wpb_home_voice_cmd");
