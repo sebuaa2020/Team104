@@ -22,9 +22,9 @@ int main(int argc, char **argv)
     pose_msg.header.frame_id = "map";
     pose_msg.pose.pose.position.x = x_pos;
     pose_msg.pose.pose.position.y = y_pos;
-    pose_msg.pose.covariance[0] = 0.25;
-    pose_msg.pose.covariance[6 * 1 + 1] = 0.25;
-    pose_msg.pose.covariance[6 * 5 + 5] = 0.06853891945200942;
+    //pose_msg.pose.covariance[0] = 0.25;
+    //pose_msg.pose.covariance[6 * 1 + 1] = 0.25;
+    //pose_msg.pose.covariance[6 * 5 + 5] = 0.06853891945200942;
     pose_msg.pose.pose.orientation.z = sin(alpha/2);
     pose_msg.pose.pose.orientation.w = cos(alpha/2);
  
