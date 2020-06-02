@@ -14,7 +14,7 @@ int main(int argc, char **argv)
   double alpha = 0;//radian value
   double x_pos = 5;
   double y_pos = 0;
-  int cnt = 3;
+  int cnt = 10;
   while (ros::ok() && cnt--)
   {
     geometry_msgs::PoseWithCovarianceStamped pose_msg;
