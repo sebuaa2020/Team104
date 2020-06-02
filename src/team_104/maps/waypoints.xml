@@ -21,12 +21,12 @@
     </Waypoint>
     <Waypoint>
         <Name>Four</Name>
-        <Pos_x>-0.275181</Pos_x>
-        <Pos_y>0.488229</Pos_y>
+        <Pos_x>-1.99462</Pos_x>
+        <Pos_y>-7.10428</Pos_y>
         <Pos_z>0</Pos_z>
         <Ori_x>0</Ori_x>
         <Ori_y>0</Ori_y>
-        <Ori_z>0.249756</Ori_z>
-        <Ori_w>0.968309</Ori_w>
+        <Ori_z>0.0838072</Ori_z>
+        <Ori_w>0.996482</Ori_w>
     </Waypoint>
 </Waterplus>
