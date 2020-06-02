@@ -17,7 +17,7 @@
   </node>
 
   <!-- Run the map server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="/home/pudding/Team104/src/team_104/maps/map.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find team_104)/maps/map.yaml"/>
 
   <!--- Run AMCL -->
   <include file="$(find wpb_home_tutorials)/nav_lidar/amcl_omni.launch" />
@@ -48,7 +48,7 @@
 
   <!-- Map tools  -->
   <node pkg="waterplus_map_tools" type="wp_manager" name="wp_manager" output="screen">
-    <param name="load" type="string" value="/home/pudding/Team104/src/team_104/maps/waypoints.xml"/> 
+    <param name="load" type="string" value="$(find team_104)/maps/waypoints.xml"/> 
   </node>
 
 </launch>
