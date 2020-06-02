@@ -316,15 +316,25 @@ def navigation_2_start():
 navigation_2_start = tk.Button(top, text="start", font=("consolas", 14), command=navigation_2_start)
 
 
+def navi_ret():
+    navigation.place(x=600, y=330)
+    navi_ret.place_forget()
+    _navigation_tell.place_forget()
+
+
+navi_ret = tk.Button(top, text="return", font=("consolas", 14), command=navi_ret)
+
+
 def navigation_3():
     navigation_p.stdin.write(b"3\n")
     navigation_p.stdin.flush()
-    message.set("please tell me the number of target")
+    message.set("please tell me the name of target")
     get_navi()
     navigation_1.place_forget()
     navigation_2.place_forget()
     navigation_3.place_forget()
     _navigation_tell.place(x=600, y=330)
+    navi_ret.place(x=1000, y=325)
 
 
 navigation_3 = tk.Button(top, text="speak", font=("consolas", 14), command=navigation_3)
