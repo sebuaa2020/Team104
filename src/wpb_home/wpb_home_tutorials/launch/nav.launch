@@ -17,7 +17,7 @@
   </node>
 
   <!-- Run the map server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find wpb_home_tutorials)/maps/map.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find team_104)/maps/map.yaml"/>
 
   <!--- Run AMCL -->
   <include file="$(find wpb_home_tutorials)/nav_lidar/amcl_omni.launch" />

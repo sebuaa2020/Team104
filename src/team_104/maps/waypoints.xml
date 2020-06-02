@@ -1,32 +1,32 @@
 <Waterplus>
     <Waypoint>
-        <Name>One</Name>
-        <Pos_x>5.03789</Pos_x>
-        <Pos_y>0.00131035</Pos_y>
+        <Name>1</Name>
+        <Pos_x>0.0166311</Pos_x>
+        <Pos_y>7.01571</Pos_y>
         <Pos_z>0</Pos_z>
         <Ori_x>0</Ori_x>
         <Ori_y>0</Ori_y>
-        <Ori_z>0.883277</Ori_z>
-        <Ori_w>-0.468851</Ori_w>
+        <Ori_z>0.938145</Ori_z>
+        <Ori_w>-0.346242</Ori_w>
     </Waypoint>
     <Waypoint>
-        <Name>Two</Name>
-        <Pos_x>-1.95648</Pos_x>
-        <Pos_y>7.04454</Pos_y>
+        <Name>2</Name>
+        <Pos_x>-4.25767</Pos_x>
+        <Pos_y>-1.21166</Pos_y>
         <Pos_z>0</Pos_z>
         <Ori_x>0</Ori_x>
         <Ori_y>0</Ori_y>
-        <Ori_z>0.904945</Ori_z>
-        <Ori_w>-0.425528</Ori_w>
+        <Ori_z>-0.634359</Ori_z>
+        <Ori_w>0.773039</Ori_w>
     </Waypoint>
     <Waypoint>
-        <Name>Three</Name>
-        <Pos_x>-0.275181</Pos_x>
-        <Pos_y>0.488229</Pos_y>
+        <Name>3</Name>
+        <Pos_x>-6.29751</Pos_x>
+        <Pos_y>-4.1148</Pos_y>
         <Pos_z>0</Pos_z>
         <Ori_x>0</Ori_x>
         <Ori_y>0</Ori_y>
-        <Ori_z>0.249756</Ori_z>
-        <Ori_w>0.968309</Ori_w>
+        <Ori_z>-0.71575</Ori_z>
+        <Ori_w>0.698357</Ori_w>
     </Waypoint>
 </Waterplus>
