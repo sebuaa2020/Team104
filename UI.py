@@ -22,19 +22,23 @@ _started = False
 _navigation = False
 _gmapping = False
 _keyboard = False
+_detection = False
 
 gazebo_m = tk.StringVar()
 navigation_m = tk.StringVar()
 gmapping_m = tk.StringVar()
 keyboard_m = tk.StringVar()
+detection_m = tk.StringVar()
 __gazebo = tk.Label(top, textvariable=gazebo_m, font=('consolas', 12))
 __navigation = tk.Label(top, textvariable=navigation_m, font=('consolas', 12))
 __gmapping = tk.Label(top, textvariable=gmapping_m, font=('consolas', 12))
 __keyboard = tk.Label(top, textvariable=keyboard_m, font=('consolas', 12))
+__detection = tk.Label(top, textvariable=detection_m, font=('consolas', 12))
 gazebo_m.set("gazebo    : off")
 navigation_m.set("navigation: off")
 gmapping_m.set("gmapping  : off")
 keyboard_m.set("keyboard  : off")
+detection_m.set("detection : off")
 
 start_p = None
 
@@ -151,10 +155,60 @@ left = tk.Button(top, text="左", font=("consolas", 14), command=left)
 right = tk.Button(top, text="右", font=("consolas", 14), command=right)
 # buttons.append([right, 940, 130])
 
-gmapping = tk.Button(top, text="gmapping", font=("consolas", 14), command=gmapping)
+gmapping = tk.Button(top, text="gmapping on/off", font=("consolas", 14), command=gmapping)
 buttons.append([gmapping, 600, 230])
 savemap = tk.Button(top, text="save map", font=("consolas", 14), command=savemap)
 buttons.append([savemap, 870, 230])
+
+detection_p = None
+
+
+def detection():
+    global _detection, detection_p
+    if _detection:
+        _detection = False
+        detection_p.kill()
+        detection_m.set("detection : off")
+        return
+    detection_p = sp.Popen("roslaunch wpb_home_tutorials obj_detect.launch", shell=True)
+    _detection = True
+    detection_m.set("detection : on")
+    message.set("rviz starting!")
+
+
+detection = tk.Button(top, text="detection on/off", font=("consolas", 14), command=detection)
+buttons.append([detection, 600, 430])
+
+_grab = False
+
+
+def grab():
+    global _grab
+    if not _detection:
+        message.set("please start detection first!")
+        return
+    if _grab:
+        message.set("already grab!")
+        return
+    _grab = True
+    message.set("grab successfully!")
+
+
+grab = tk.Button(top, text="grab", font=("consolas", 14), command=grab)
+buttons.append([grab, 800, 430])
+
+
+def putdown():
+    global _grab
+    if not _grab:
+        message.set("please grab a item first!")
+        return
+    _grab = True
+    message.set("put down successfully!")
+
+
+putdown = tk.Button(top, text="put down", font=("consolas", 14), command=putdown)
+buttons.append([putdown, 900, 430])
 
 navigation_p = None
 
@@ -293,14 +347,15 @@ def login():
         login.place_forget()
         register.place_forget()
         w = tk.Label(top, text='Welcome! ', font=('consolas', 14))
-        w.place(x=100, y=100)
+        w.place(x=100, y=75)
         n = tk.Label(top, textvariable=Username, font=('consolas', 14))
         n.place(x=200, y=100)
         message.set('robot started!\nplease click the buttons.')
-        __gazebo.place(x=100, y=160)
-        __navigation.place(x=100, y=190)
-        __gmapping.place(x=100, y=220)
-        __keyboard.place(x=100, y=250)
+        __gazebo.place(x=100, y=130)
+        __navigation.place(x=100, y=160)
+        __gmapping.place(x=100, y=190)
+        __keyboard.place(x=100, y=220)
+        __detection.place(x=100, y=250)
 
         _login = True
 
