@@ -9,6 +9,6 @@
 	
 	
 测试运行：
-	rosrun team_104 path
+	rosrun team_104 navigate
 
 结果符合期望

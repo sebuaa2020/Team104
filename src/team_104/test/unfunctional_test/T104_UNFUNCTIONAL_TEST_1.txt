@@ -1,0 +1,18 @@
+测试条件：
+	编译完成
+	tkinter
+	python3 UI.py
+
+		测试项目               结果期望
+	1、点击“keyboard on/off”	正常反馈
+	2、点击移动用键盘		正常反馈
+	2、点击"gmapping on/off"	正常反馈
+	3、点击"gazebo on/off"	正常反馈
+	4、点击"navigation"	正常反馈
+	5、点击"detection on/off"	正常反馈
+	
+	
+
+
+测试涵盖UI代码所有分支
+结果均符合期望
