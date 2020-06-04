@@ -29,4 +29,14 @@
         <Ori_z>0.0838072</Ori_z>
         <Ori_w>0.996482</Ori_w>
     </Waypoint>
+    <Waypoint>
+        <Name>Six</Name>
+        <Pos_x>5.05958</Pos_x>
+        <Pos_y>7.98475</Pos_y>
+        <Pos_z>0</Pos_z>
+        <Ori_x>0</Ori_x>
+        <Ori_y>0</Ori_y>
+        <Ori_z>-0.724719</Ori_z>
+        <Ori_w>0.689044</Ori_w>
+    </Waypoint>
 </Waterplus>
