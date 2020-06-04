@@ -176,8 +176,15 @@ def detection():
     message.set("rviz starting!")
 
 
-detection = tk.Button(top, text="detection on/off", font=("consolas", 14), command=detection)
-buttons.append([detection, 600, 430])
+# detection = tk.Button(top, text="detection on/off", font=("consolas", 14), command=detection)
+# buttons.append([detection, 600, 430])
+
+def newpoint():
+    sp.Popen("roslaunch waterplus_map_tools add_waypoint.launch", shell=True)
+
+
+newpoint = tk.Button(top, text="new point", font=("consolas", 14), command=newpoint)
+buttons.append([newpoint, 600, 430])
 
 _grab = False
 
@@ -194,8 +201,8 @@ def grab():
     message.set("grab successfully!")
 
 
-grab = tk.Button(top, text="grab", font=("consolas", 14), command=grab)
-buttons.append([grab, 800, 430])
+# grab = tk.Button(top, text="grab", font=("consolas", 14), command=grab)
+# buttons.append([grab, 800, 430])
 
 
 def putdown():
@@ -207,8 +214,14 @@ def putdown():
     message.set("put down successfully!")
 
 
-putdown = tk.Button(top, text="put down", font=("consolas", 14), command=putdown)
-buttons.append([putdown, 900, 430])
+# putdown = tk.Button(top, text="put down", font=("consolas", 14), command=putdown)
+# buttons.append([putdown, 900, 430])
+def savepoint():
+    sp.Popen("rosrun waterplus_map_tools wp_saver", shell=True)
+
+
+savepoint = tk.Button(top, text="save point", font=("consolas", 14), command=savepoint)
+buttons.append([savepoint, 900, 430])
 
 navigation_p = None
 
