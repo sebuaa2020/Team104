@@ -43,5 +43,9 @@ tkinter
 python3 UI.py
 ```
 
+## 演示视频链接
 
+https://bhpan.buaa.edu.cn:443/link/21E42BA951AF2755CCCB804DDAC77A47
+Valid Until: 2020-07-06 23:59
 
+由于视频在ubuntu系统进行录制，导致视频无法在Windows Media Player播放，目前可以在腾讯视频进行播放
