@@ -3,3 +3,6 @@ SDD:
 	
 STD:
 	https://shimo.im/docs/4706c08cc8c047c1
+	
+PDSR:
+	https://shimo.im/docs/GYrVyCrTRX9h3j9w
